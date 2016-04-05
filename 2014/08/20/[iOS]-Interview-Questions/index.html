@@ -1,0 +1,1384 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="1rAjSg_LYunVt576r01InAPcRzfUpJ1sf6iiNhZPVwg" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LEO'S NOTE" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="面试题这种东西，你看或者不看，它就在那里，不增不减。
+面试官这种生物，你喜或者不喜，他就在那里，静候佳音。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【iOS】面试题">
+<meta property="og:url" content="http://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/index.html">
+<meta property="og:site_name" content="LEO'S NOTE">
+<meta property="og:description" content="面试题这种东西，你看或者不看，它就在那里，不增不减。
+面试官这种生物，你喜或者不喜，他就在那里，静候佳音。">
+<meta property="og:image" content="http://note.leodev.me/alipay.png">
+<meta property="og:updated_time" content="2016-03-04T06:57:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【iOS】面试题">
+<meta name="twitter:description" content="面试题这种东西，你看或者不看，它就在那里，不增不减。
+面试官这种生物，你喜或者不喜，他就在那里，静候佳音。">
+<meta name="twitter:image" content="http://note.leodev.me/alipay.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13204666,
+      author: 'GODLIKE'
+    }
+  };
+</script>
+
+  <title> 【iOS】面试题 | LEO'S NOTE </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a28408894a1d0eab2dedfc11c944989d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">LEO'S NOTE</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">心有猛虎 | 细嗅蔷薇</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lol">
+          <a href="http://leodev.me/lol" rel="section">
+            
+              <i class="menu-item-icon fa fa-anchor fa-fw"></i> <br />
+            
+            德玛西亚
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'bPKygs7WQ5i6jj_7zvGT','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【iOS】面试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-08-20T09:29:30+08:00" content="2014-08-20">
+              2014-08-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/08/20/[iOS]-Interview-Questions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/20/[iOS]-Interview-Questions/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2014/08/20/[iOS]-Interview-Questions/" class="leancloud_visitors" data-flag-title="【iOS】面试题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>面试题这种东西，你看或者不看，它就在那里，不增不减。</p>
+<p>面试官这种生物，你喜或者不喜，他就在那里，静候佳音。</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="【第一部分】-通用面试题"><a href="#【第一部分】-通用面试题" class="headerlink" title="【第一部分】 通用面试题"></a>【第一部分】 通用面试题</h2><p>1、即时聊天App不会采用的网络传输方式是    <strong>D</strong></p>
+<pre><code>A UDP B TCP C HTTP D FTP
+</code></pre><p>2、下列技术不属于多线程的是       <strong>A</strong></p>
+<pre><code>A Block B NSThread C NSOperation D GCD
+</code></pre><p>3、线程和进程的区别不正确的是  <strong>B</strong></p>
+<pre><code>A 进程和线程都是由操作系统所体会的程序运行的基本单元
+
+B 线程之间有单独的地址空间
+
+C 进程和线程的主要差别在于它们是不同的操作系统资源管理方式
+
+D 线程有自己的堆栈和局部变量
+</code></pre><p>4、堆和栈的区别正确的是 <strong>D</strong></p>
+<pre><code>A 对于栈来讲，我们需要手工控制，容易产生memory leak
+
+B 对于堆来说，释放工作由编译器自动管理，无需我们手工控制
+
+C 在Windows下,栈是向高地址扩展的数据结构，是连续的内存区域，栈顶的地址和栈的最大容量是系统预先规定好的
+
+D 对于堆来讲，频繁的new/delete势必会造成内存空间的不连续，从而造成大量的碎片，使程序效率降低
+</code></pre><p>5、下列回调机制的理解不正确的是   <strong>B</strong></p>
+<pre><code>A 目标动作对：当两个对象之间有⽐比较紧密的关系时，如视图控制器与其下的某个视图。       
+
+B 代理：也叫委托，当某个对象收到多个事件，并要求同一个对象来处理所有事件时。委托机制必须依赖于某个协议定义的⽅法来发送消息。       
+
+C 通告机制：当需要多个对象或两个⽆无关对象处理同一个事件时。       
+
+D Block：适⽤于回调只发⽣生一次的简单任务。
+</code></pre><p>6、对于runloop的理解不正确的是 <strong>C</strong></p>
+<pre><code>A 每一个线程都有其对应的RunLoop
+
+B 默认非主线程的RunLoop是没有运行的
+
+C 在一个单独的线程中没有必要去启用RunLoop
+
+D 可以将NSTimer添加到runloop中
+</code></pre><p>7、UITableView中cell的复用是由几个数组实现的 <strong>B</strong></p>
+<pre><code>A 1 B 2  C 3 D 3或4
+</code></pre><p>8、在线播放视频一般访问服务器中的（ ）类型文件   <strong>A</strong></p>
+<pre><code>A M3U8 B flv C MP4 D data
+</code></pre><p>9、点击Button响应链中最终得到响应的是 <strong>B</strong></p>
+<pre><code>A Window B Application C AppDelegate D UIViewController
+</code></pre><p>10、内存管理理解不正确的是          <strong>B</strong>                                                       </p>
+<pre><code>A 程序A里有一段内存被成功申请完成之后，内存计数器就从0变为1 (这个过程是alloc);  
+
+B 程序B里要使用已存在内存，那么内存计数器从1变为2 (这个过程是retain或者copy);  
+
+C 紧接着程序A不需要这个内存了，那么程序A就把这个内存计数器减1 (这个过程是release);  
+
+D 当系统发现这个内存计数器变为小于等于0，那么就调用垃圾回收程序把这段内存回收(这个过程是dealloc)；
+</code></pre><p>11、断点续传需要在请求头中添加的控制续传最重要的关键字是 <strong>A</strong></p>
+<pre><code>A range B length C type D size
+</code></pre><p>12、post传输的最大文件限制为 <strong>C</strong></p>
+<pre><code>A 1G B 2G C 4G  D 8G
+</code></pre><p>13、MVC优点不正确的是  <strong>D</strong></p>
+<pre><code>A 低耦合性
+
+B 高重用性和可适用性
+
+C 较低的生命周期成本
+
+D 代码高效率
+</code></pre><h2 id="【第二部分】-推荐面试题"><a href="#【第二部分】-推荐面试题" class="headerlink" title="【第二部分】 推荐面试题"></a>【第二部分】 推荐面试题</h2><h3 id="1-10-C语言-amp-计算机基础"><a href="#1-10-C语言-amp-计算机基础" class="headerlink" title="1-10 C语言 &amp; 计算机基础"></a>1-10 C语言 &amp; 计算机基础</h3><hr>
+<p>1、请看下面一段代码</p>
+<pre><code>static int a = 1;
+
+int main() {
+
+    int b = 2;
+
+    char *c = NULL;
+
+    c = (char *)malloc(100 * sizeof(char));
+
+    return 0;
+}
+</code></pre><p>请问访问a,b,c 3种类型变量的效率从高到低依次是</p>
+<pre><code>A. cba
+
+B. abc
+
+C. acb
+
+D. bca
+</code></pre><p><strong>B</strong></p>
+<p>2、下面四种内部排序算法中哪一种在最差情况下时间复杂度最高？</p>
+<pre><code>A. 快速排序
+
+B. 冒泡排序
+
+C. 堆排序
+
+D. 归并排序
+</code></pre><p><strong>B</strong></p>
+<p>3、Shell中，将command1的输出作为command2的输入应该使用的命令是</p>
+<pre><code>A. command1 &amp;&amp; command2
+
+B. command1 &gt; command2
+
+C. command1 &amp; command2
+
+D. command1 | command2
+</code></pre><p><strong>D</strong></p>
+<p>4、下面的数据结构中不属于线性结构的是</p>
+<pre><code>A. 栈
+
+B. 链表
+
+C. 二叉树
+
+D. 线性表
+</code></pre><p><strong>C</strong></p>
+<p>5、在一个二叉树上，第5层最多可以有的节点数是</p>
+<pre><code>A. 2
+
+B. 8
+
+C. 16
+
+D. 32
+</code></pre><p><strong>C</strong></p>
+<p>6、在长度为n的线性表上进行顺序查找，在最糟糕的情况下需要的比较次数是</p>
+<pre><code>A. n
+
+B. 2n-1
+
+C. 2n
+
+D. n^2
+</code></pre><p><strong>A</strong></p>
+<p>7、下面那项不是动态语言的特性</p>
+<pre><code>A. 在运行时替换一个类
+
+B. 在运行时动态加载lib文件
+
+C. 在运行时修改对象中的方法
+
+D. 在运行时增加对象的方法
+</code></pre><p><strong>B</strong></p>
+<p>8、已知二叉树后序遍历序列是dabec，中序遍历序列是debac，它的前序遍历序列是</p>
+<pre><code>A. cedba
+
+B. acbed
+
+C. decab
+
+D. deabc
+</code></pre><p><strong>A</strong></p>
+<p>9、以下多线程对int型变量x的操作，哪个不需要进行同步：</p>
+<pre><code>A. x=y
+
+B. x++
+
+C. ++x
+
+D. x=1
+</code></pre><p><strong>D</strong></p>
+<p>10、多线程中栈与堆是公有的还是私有的</p>
+<pre><code>A. 栈公有, 堆私有
+
+B. 栈公有，堆公有
+
+C. 栈私有, 堆公有
+
+D. 栈私有，堆私有
+</code></pre><p><strong>C</strong></p>
+<h3 id="11-20-Objective-C-amp-Xcode"><a href="#11-20-Objective-C-amp-Xcode" class="headerlink" title="11-20 Objective-C &amp; Xcode"></a>11-20 Objective-C &amp; Xcode</h3><hr>
+<p>11、在Xcode中，需要编译混合Objective-C和C++的源码文件，需要将文件格式的后缀改为</p>
+<pre><code>A. .c
+
+B. .cpp
+
+C. .mm
+
+D. .m
+</code></pre><p><strong>C</strong></p>
+<p>12、Objective-C声明一个类所要用到的编译指令是</p>
+<pre><code>A. @interface SomeClass
+
+B. @protocol SomeClass
+
+C. @implementation SomeClass
+
+D. @autorelease SomeClass
+</code></pre><p><strong>A</strong></p>
+<p>13、使用Xcode创建工程时，支持同时创建的版本管理库是</p>
+<pre><code>A. Subversion
+
+B. Mercurial
+
+C. Git
+
+D. Concurrent Versions System
+</code></pre><p><strong>C</strong></p>
+<p>14、下面那个方法不属于NSObject的内省（Introspection）方法</p>
+<pre><code>A. init
+
+B. isKindOfClass
+
+C. responseToSelector
+
+D. isMemberOfClass
+</code></pre><p><strong>A</strong></p>
+<p>15、使用protocol时，声明一组可选择实现与否的函数，需要在声明的前一行加上：</p>
+<pre><code>A. @required
+
+B. @optional
+
+C. @interface
+
+D. @protocol
+</code></pre><p><strong>B</strong></p>
+<blockquote>
+<p>@required 是必须实现，它的代理必须实现协议中的 @required 方法。</p>
+<p>如果不声明 @optional，默认 @required。</p>
+</blockquote>
+<p>16、需要在手动管理内存分配和释放的Xcode项目中引入和编译用ARC风格编写的文件，需要在文件的Compiler Flags上添加参数：</p>
+<pre><code>A. -shared
+
+B. -fno-objc-arc
+
+C. -fobjc-arc
+
+D. -dynamic
+</code></pre><p><strong>C</strong></p>
+<blockquote>
+<p>MRC中引入ARC文件：</p>
+<pre><code>-fobjc-arc
+</code></pre><p>ARC中引入MRC文件：</p>
+<pre><code>-fno-objc-arc
+</code></pre></blockquote>
+<p>17、下面关于Objective-C内存管理的描述错误的是</p>
+<pre><code>A. 当使用ARC来管理内存时，代码中不可以出现autorelease
+
+B. autoreleasepool 在 drain 的时候会释放在其中分配的对象
+
+C. 当使用ARC来管理内存时，在线程中大量分配对象而不用autoreleasepool则可能会造成内存泄露
+
+D. 在使用ARC的项目中不能使用NSZone
+</code></pre><p><strong>A</strong></p>
+<p>18、下面关于#import和#include的描述正确的是</p>
+<pre><code>A. #import 是 #include 的替代指令，防止重复引用
+
+B. #import 和 #include 不可以混合使用
+
+C. #import 只用于引用 Objective-C的文件，#include 只用于引用C和C++的文件
+
+D. #import 和 #include 的使用效果完全相同
+</code></pre><p><strong>A</strong></p>
+<p>19、下面的代码问题在哪？</p>
+<pre><code>@implementation xxx
+…
+…
+- (void) setVar:(int)i {
+
+     self.var = i;
+}
+</code></pre><p>答案是：</p>
+<pre><code>A. 应该将var synthesize
+
+B. 调用会出现死循环
+
+C. 正常
+
+D. 返回值错误
+</code></pre><p><strong>B</strong></p>
+<p>20、下面那个方法可以比较两个 NSString *str1, *str2 的异同</p>
+<pre><code>A. if(str1 = str2) xxx ;
+
+B. if([str1 isEqualToString:str2]) xxx ;
+
+C. if(str1 &amp;&amp; str2) xxx ;
+
+D. if([str1 length] == [str2 length]) xxx;
+</code></pre><p><strong>B</strong></p>
+<h3 id="21-30-iOS"><a href="#21-30-iOS" class="headerlink" title="21-30 iOS"></a>21-30 iOS</h3><hr>
+<p>21、下面哪个不属于对象数据序列化方法</p>
+<pre><code>A. JSON
+
+B. Property List
+
+C. XML
+
+D. HTTP
+</code></pre><p><strong>D</strong></p>
+<p>22、在UIKit中，frame与bounds的区别是</p>
+<pre><code>A. frame 是 bounds 的别名
+
+B. frame 是 bounds 的继承类
+
+C. frame 的参考系是父视图坐标，bounds 的参考系是自身的坐标
+
+D. frame 的参考系是自身坐标，bounds 的参考系是父视图的坐标
+</code></pre><p><strong>C</strong></p>
+<p>23、Objective-C有私有方法吗？有私有变量吗？</p>
+<pre><code>A. 有私有方法和私有变量
+
+B. 没有私有方法也没有私有变量
+
+C. 没有私有方法，有私有变量
+
+D. 有私有方法，没有私有变量
+</code></pre><p><strong>C</strong></p>
+<p>&gt;</p>
+<blockquote>
+<p>这里选C是有疑点的。</p>
+<p>私有变量不用说了，在.m里面匿名声明的就是私有变量了。</p>
+<p>私有方法则是值得推敲的。其实在.m里面不声明直接实现的方法，从效果上来讲，应该也能算是私有方法了，因为包括它的子类在内的其他类，都是无法访问该方法的。当然，称之为“隐藏方法”或许更好。</p>
+</blockquote>
+<p>24、下面关于线程管理错误的是</p>
+<pre><code>A. GCD所用的开销要比NSThread大
+
+B. 可以在子线程中修改UI元素
+
+C. NSOperationQueue是比NSthread更高层的封装
+
+D. GCD可以根据不同优先级分配线程
+</code></pre><p><strong>B</strong></p>
+<p>25、下面代码的作用是让doSomeThing函数每隔1秒被调用1次。</p>
+<pre><code>NSTimer *myTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(doSomething:) userInfo:nil repeats:YES];
+
+[myTimer fire];
+</code></pre><p>请问哪里有问题？</p>
+<pre><code>A. 没有将timer加入runloop
+
+B. doSomeThing缺少参数
+
+C. 忘记传递数据给userInfo
+
+D. myTimer对象未通过[[myTimer alloc] init]方法初始化
+</code></pre><p><strong>A</strong></p>
+<p>26、UIViewController在显示过程中，各个方法的调用顺序是</p>
+<pre><code>A. init -&gt; viewDidLoad -&gt; viewDidAppear -&gt; viewDidUnload
+
+B. init -&gt; viewDidAppear -&gt; viewDidLoad -&gt; viewDidUnload
+
+C. init -&gt; viewDidLoad -&gt; viewDidUnload -&gt; viewDidAppear
+
+D. init -&gt; viewDidAppear -&gt; viewDidUnload -&gt; viewDidLoad
+</code></pre><p><strong>A</strong></p>
+<blockquote>
+<p>viewDidUnload 在iOS5.0之后不再生效，类似的方法：</p>
+<p>didReceiveMemoryWarning // 接收到内存警告时调用</p>
+<blockquote>
+<p>官方文档：</p>
+<pre><code>- viewDidUnload (iOS 6.0)
+</code></pre><p>Called when the controller’s view is released from memory.</p>
+<p><strong>Deprecation Statement</strong></p>
+<p>Views are no longer purged under low-memory conditions and so this method is never called.</p>
+<p><strong>Declaration</strong></p>
+<pre><code>*OBJECTIVE-C*
+
+- (void)viewDidUnload
+</code></pre><p><strong>Discussion</strong></p>
+<p>In iOS 5 and earlier, when a low-memory condition occurred and the current view controller’s views were not needed, the system could opt to call this method after the view controller’s view had been released. This method was your chance to perform any final cleanup. If your view controller stored separate references to the view or its subviews, you could use this method to release those references. You could also use this method to remove references to any objects that you created to support the view but that are no longer needed now that the view is gone. You would not use this method to release user data or any other information that cannot be easily recreated.</p>
+<p>In iOS 6 and later, clearing references to views and other objects in your view controller is unnecessary.</p>
+<p>At the time this method is called, the view property is nil.</p>
+<p><strong>Availability</strong></p>
+<p>Available in iOS 3.0 and later.</p>
+<p>Deprecated in iOS 6.0.</p>
+</blockquote>
+</blockquote>
+<p>27、使用imageNamed方法创建UIImage对象时，与普通的init方法有什么区别？</p>
+<pre><code>A. 没有区别，只是为了方便
+
+B. imageNamed方法只是创建了一个指针，没有分配其他内存
+
+C. imageNamed方法将图片加载到内存中后不再释放
+
+D. imageNamed方法将使用完图片后立即释放
+</code></pre><p><strong>C</strong></p>
+<p>28、一个类的delegate（代理）的作用不正确的是</p>
+<pre><code>A. delegate中的函数在其他类中实现
+
+B. 主要用于不同类型的对象之间一对一传递消息
+
+C. 没有指派则不会触发
+
+D. 可以一个对象的delegate指派给多个其他类型的对象
+</code></pre><p><strong>D</strong></p>
+<p>29、在没有navigationController的情况下，要从一个ViewController切换到另一个ViewController应该</p>
+<pre><code>A. [self.navigationController pushViewController:nextViewController animated:YES];
+
+B. [self.view addSubview:nextViewController.view];
+
+C. [self pushViewController:nextViewController animated:YES];
+
+D. [self presentModalViewController:nextViewController animated:YES];
+</code></pre><p><strong>D</strong></p>
+<blockquote>
+<p>从iOS5.0开始，D项应该更新为</p>
+<p>[self presentViewController:nextViewController animated:YES completion:nil];</p>
+<p>presentModalViewController:animated:iOS6.0已过期</p>
+<blockquote>
+<p>官方文档：</p>
+<pre><code>- presentModalViewController:animated: (iOS 6.0)
+</code></pre><p>Presents a modal view managed by the given view controller to the user.</p>
+<p><strong>Deprecation Statement</strong></p>
+<p>Use <code>presentViewController:animated:completion:</code> instead.</p>
+</blockquote>
+</blockquote>
+<p>30、什么是key window？</p>
+<pre><code>A. App中唯一的那个UIWindow对象
+
+B. 可以指定一个key的UIWindow
+
+C. 可接收到键盘输入等事件的UIWindow
+
+D. 不可以隐藏的那个UIWindow对象
+</code></pre><p><strong>C</strong></p>
+<blockquote>
+<blockquote>
+<p>官方文档：</p>
+<p>“The key window is the one that is designated to receive keyboard and other non-touch related events. Only one window at a time may be the key window.”</p>
+</blockquote>
+<p>翻译过来就是说，keyWindow是指定的用来接收键盘以及非触摸类的消息，而且程序中每一个时刻只能有一个window是keyWindow。</p>
+<p>参考博文：<a href="http://www.cnblogs.com/smileEvday/archive/2012/11/16/UIWindow.html" target="_blank" rel="external">UIWindow的一点儿思考</a>–一片枫叶</p>
+</blockquote>
+<h3 id="31-39-代码"><a href="#31-39-代码" class="headerlink" title="31-39 代码"></a>31-39 代码</h3><hr>
+<p>31、求以下程序段的输出</p>
+<pre><code>int test(int x, int y) {
+
+    x = x + y;
+
+    return x * y;
+}
+
+int main(int argc, const char * argv[]) {
+
+    @autoreleasepool {
+
+        int x = 3, y = 10, z = test(x, y);
+
+        NSLog(@&quot;%d%d&quot;, x++, ++z);
+    }
+
+    return 0;
+}
+</code></pre><p>答案是   <strong>A</strong></p>
+<pre><code>A 331 B 330  C 431 D  430
+</code></pre><p>32、求以下程序段的输出</p>
+<pre><code>int func(int x) {    
+
+    int countx = 0;    
+
+    while (x) {        
+
+        countx++;        
+
+        x = x&amp;(x-1);    
+    }    
+
+    return countx;
+}
+
+int main(int argc, const char * argv[]) {    
+
+    @autoreleasepool {        
+
+        NSLog(@&quot;%d&quot;, func(2013));    
+    }    
+
+    return 0;
+}
+</code></pre><p>答案是  <strong>D</strong></p>
+<pre><code>A 1 B 5 C 8 D 9
+</code></pre><p>33、下面说法不正确的是 <strong>C</strong></p>
+<pre><code>A readwrite 是可读可写特性；需要生成getter方法和setter方法时
+
+B readonly 是只读特性  只会生成getter方法 不会生成setter方法 ;不希望属性在类外改变
+
+C assign 是赋值特性，和weak一样，可用weak代替；
+
+D retain 表示持有特性，setter方法将传入参数先保留，再赋值，传入参数的retaincount会+1;
+</code></pre><p>34、对于语句 NSString *obj = [[NSData alloc] init]; obj在编译时和运行时分别时什么类型的对象？ <strong>A</strong></p>
+<pre><code>A 编译时是NSString的类型；运行时是NSData类型的对象
+
+B 编译时是NSObject的类型；运行时是NSData类型的对象
+
+C 编译时是NSData的类型；运行时是NSString类型的对象
+
+D 编译时是NSObject的类型；运行时是NSString类型的对象
+</code></pre><p>35、Objective-C中的线程下面描述不正确的是  <strong>B</strong></p>
+<pre><code>A 使用NSThread创建，使用GCD的dispatch
+
+B 直接使用NSOperation，然后将其加入NSOperationQueue
+
+C 在主线程执行代码，方法是performSelectorOnMainThread
+
+D 如果想延时执行代码可以用performSelector:onThread:withObject:waitUntilDone:
+</code></pre><p>36、下列不属于iOS存储方式的是    <strong>A</strong></p>
+<pre><code>A NSFileManager   B 归档   C SQLite   D CoreData
+</code></pre><p>37、IP Phone的原理是什么?       <strong>C</strong>       </p>
+<pre><code>A IPV4  B DHCP C IPV6  D DNS
+</code></pre><p>38、类别的作用不正确的是 <strong>D</strong></p>
+<pre><code>A 将类的实现分散到多个不同文件或多个不同框架中。
+
+B 创建对私有方法的前向引用。
+
+C 向对象添加非正式协议。 继承可以增加，修改或者删除方法。
+
+D 不能添加属性
+</code></pre><p>39、对NSOperationQueue理解不正确的是 <strong>D</strong></p>
+<pre><code>A 存放NSOperation的集合类
+
+B 可以设置最大并发数
+
+C 放进去的线程会自动执行
+
+D 用户需要管理放进去的线程执行顺序
+</code></pre><h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><ul>
+<li>本文面试题收集自网络，解答如有偏颇，欢迎留言指正！</li>
+</ul>
+<h2 id="联系与捐赠"><a href="#联系与捐赠" class="headerlink" title="联系与捐赠"></a>联系与捐赠</h2><ul>
+<li>Mail: devtip#163.com</li>
+<li>GitHub:    <a href="https://github.com/LeoiOS" target="_blank" rel="external">LeoiOS</a></li>
+<li>土豪捐赠通道: 👇</li>
+</ul>
+<p><img src="/alipay.png" alt="Alipay"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/面试/" rel="tag">#面试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/07/Hello-Hexo/" rel="prev" title="Hello Hexo">
+                Hello Hexo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2014/08/20/[iOS]-Interview-Questions/"
+     data-title="【iOS】面试题"
+     data-content=""
+     data-url="http://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/08/20/[iOS]-Interview-Questions/"
+           data-title="【iOS】面试题" data-url="http://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xl8ia.com1.z0.glb.clouddn.com/Jack.png"
+               alt="Leo" />
+          <p class="site-author-name" itemprop="name">Leo</p>
+          <p class="site-description motion-element" itemprop="description">Stay Hungry.<br>Stay Foolish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://leodev.me" target="_blank">
+                  
+                    <i class="fa fa-cube"></i>
+                  
+                  Cover
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LeoiOS" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://api.leodev.me:3000" target="_blank">
+                  
+                    <i class="fa fa-git"></i>
+                  
+                  GitLeo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/coderleo" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/LeoiOS" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://note.leodev.me/resume.pdf" target="_blank">
+                  
+                    <i class="fa fa-heartbeat"></i>
+                  
+                  CV
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/LeoiOS" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.leodong.com" target="_blank">Another</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://eizoios.com" target="_blank">隔壁老王</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tsusolo.com" target="_blank">TT</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#【第一部分】-通用面试题"><span class="nav-number">1.</span> <span class="nav-text">【第一部分】 通用面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【第二部分】-推荐面试题"><span class="nav-number">2.</span> <span class="nav-text">【第二部分】 推荐面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-C语言-amp-计算机基础"><span class="nav-number">2.1.</span> <span class="nav-text">1-10 C语言 & 计算机基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-20-Objective-C-amp-Xcode"><span class="nav-number">2.2.</span> <span class="nav-text">11-20 Objective-C & Xcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-30-iOS"><span class="nav-number">2.3.</span> <span class="nav-text">21-30 iOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#31-39-代码"><span class="nav-number">2.4.</span> <span class="nav-text">31-39 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">3.</span> <span class="nav-text">结尾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系与捐赠"><span class="nav-number">4.</span> <span class="nav-text">联系与捐赠</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo</span>
+</div>
+
+<div class="powered-by">
+  基于 <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16000856号</a>
+</div>
+
+<!--<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>-->
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leodev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("QASwweQvuowvf8NYwN65dgmR-gzGzoHsz", "cqGrdJ6TgCMkE13DMmsjhyy4");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

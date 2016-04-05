@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>http://note.leodev.me/2016/03/22/iOS-Xcode-Plugins-Version-Support/</loc>
+    <lastmod>2016-03-22T10:27:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】Xcode 插件过时怎么办？</title>
+        <pubTime>2016-03-22T09:07:49.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="Xcode" url="http://note.leodev.me/categories/iOS/Xcode/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/30/The-Installation-Usage-And-QA-of-Hexo-on-Mac/</loc>
+    <lastmod>2016-03-22T10:01:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac 上 Hexo 的安装、使用和常见问题</title>
+        <pubTime>2015-12-30T04:37:11.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>node.js</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="node.js" url="http://note.leodev.me/categories/node-js/"/>
+          
+             
+              <breadCrumb title="hexo" url="http://note.leodev.me/categories/node-js/hexo/"/>
+          
+             
+              <breadCrumb title="Mac" url="http://note.leodev.me/categories/node-js/hexo/Mac/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/31/The-installation-and-usage-of-CocoaPods-and-FAQ/</loc>
+    <lastmod>2016-03-22T10:01:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>CocoaPods 的安装、使用和常见问题</title>
+        <pubTime>2015-12-31T06:03:08.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>CocoaPods</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="CocoaPods" url="http://note.leodev.me/categories/iOS/CocoaPods/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/01/20/iOS-tip-auto-scroll-search-bar/</loc>
+    <lastmod>2016-03-22T10:00:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】开发技巧——自动滚动的 SearchBar</title>
+        <pubTime>2016-01-20T05:37:40.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Tip</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="Tip" url="http://note.leodev.me/categories/iOS/Tip/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/03/07/iOS-Swifty-methods/</loc>
+    <lastmod>2016-03-22T10:00:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】用 Swift 来写 Swift 的方法</title>
+        <pubTime>2016-03-07T09:52:23.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="Swift" url="http://note.leodev.me/categories/iOS/Swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/</loc>
+    <lastmod>2016-03-22T10:00:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】系统是怎么实现 UIAlertView 的？</title>
+        <pubTime>2015-12-29T08:15:11.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/02/02/iOS-Auto-Build-From-SVN-Version/</loc>
+    <lastmod>2016-03-22T07:30:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】如何让 Xcode 自动更新 SVN Version 到 Build</title>
+        <pubTime>2016-02-02T06:25:04.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>SVN</tag>
+         
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="SVN" url="http://note.leodev.me/categories/iOS/SVN/"/>
+          
+             
+              <breadCrumb title="shell" url="http://note.leodev.me/categories/iOS/SVN/shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/03/11/Why-Coding/</loc>
+    <lastmod>2016-03-11T10:26:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>Why Coding?</title>
+        <pubTime>2016-03-11T10:22:58.000Z</pubTime>
+        
+        <tag>Time</tag>
+         
+         
+           
+             
+              <breadCrumb title="Time" url="http://note.leodev.me/categories/Time/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://note.leodev.me/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/</loc>
+    <lastmod>2016-03-04T07:40:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】Apple Pay 开发指南（一）</title>
+        <pubTime>2016-03-04T04:47:27.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Apple Pay</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="Apple Pay" url="http://note.leodev.me/categories/iOS/Apple-Pay/"/>
+          
+             
+              <breadCrumb title="Swift" url="http://note.leodev.me/categories/iOS/Apple-Pay/Swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/01/04/HTML-JS-apple-itunes-app/</loc>
+    <lastmod>2016-03-04T07:08:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>【HTML JS】通过 apple-itunes-app 在网页顶端显示你的 iOS App</title>
+        <pubTime>2016-01-04T03:20:35.000Z</pubTime>
+        
+        <tag>HTML</tag>
+         
+        <tag>node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="HTML" url="http://note.leodev.me/categories/HTML/"/>
+          
+             
+              <breadCrumb title="node.js" url="http://note.leodev.me/categories/HTML/node-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/11/%5BiOS%5D-Development-Notes-1/</loc>
+    <lastmod>2016-03-04T07:00:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】开发笔记（一）</title>
+        <pubTime>2015-12-11T04:39:29.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="笔记" url="http://note.leodev.me/categories/iOS/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/15/%5BiOS%5D-How-To-Setting-HTTP-Header-With-AFNetworking/</loc>
+    <lastmod>2016-03-04T06:59:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】使用 AFNetworking 如何设置 HTTP Header</title>
+        <pubTime>2015-12-15T09:34:53.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>技巧</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="技巧" url="http://note.leodev.me/categories/iOS/%E6%8A%80%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/21/%5BMac-Tip%5D-How-To-Name-The-Local-Downloads-Folder/</loc>
+    <lastmod>2016-03-04T06:59:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>【Mac 技巧】怎么样把 "Downloads" 文件夹命名为 "下载"？</title>
+        <pubTime>2015-12-21T13:19:23.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>技巧</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mac" url="http://note.leodev.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="技巧" url="http://note.leodev.me/categories/Mac/%E6%8A%80%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/01/08/git-commonly-used-commands/</loc>
+    <lastmod>2016-03-04T06:59:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git 常用命令</title>
+        <pubTime>2016-01-08T08:55:20.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>git</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Debian</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://note.leodev.me/categories/git/"/>
+          
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/git/iOS/"/>
+          
+             
+              <breadCrumb title="Linux" url="http://note.leodev.me/categories/git/iOS/Linux/"/>
+          
+             
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/</loc>
+    <lastmod>2016-03-04T06:58:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>【Mac】终端常见的 Vim 命令</title>
+        <pubTime>2016-02-22T02:28:52.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>Vim</tag>
+         
+        <tag>Terminal</tag>
+         
+        <tag>Command</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mac" url="http://note.leodev.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="Vim" url="http://note.leodev.me/categories/Mac/Vim/"/>
+          
+             
+              <breadCrumb title="Terminal" url="http://note.leodev.me/categories/Mac/Vim/Terminal/"/>
+          
+             
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
+    <lastmod>2016-03-04T06:57:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello Hexo</title>
+        <pubTime>2015-12-07T05:45:18.000Z</pubTime>
+        
+        <tag>Hello</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hello" url="http://note.leodev.me/categories/Hello/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
+    <lastmod>2016-03-04T06:57:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>【Mac 技巧】开启适用于 Force Touch 触控板的“三指拖移”</title>
+        <pubTime>2015-12-14T08:10:10.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>技巧</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mac" url="http://note.leodev.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="技巧" url="http://note.leodev.me/categories/Mac/%E6%8A%80%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://note.leodev.me/2014/08/20/%5BiOS%5D-Interview-Questions/</loc>
+    <lastmod>2016-03-04T06:57:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】面试题</title>
+        <pubTime>2014-08-20T01:29:30.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>面试</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="面试" url="http://note.leodev.me/categories/iOS/%E9%9D%A2%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</urlset>

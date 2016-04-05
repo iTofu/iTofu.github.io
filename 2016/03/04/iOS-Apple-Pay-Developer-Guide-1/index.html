@@ -1,0 +1,919 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="1rAjSg_LYunVt576r01InAPcRzfUpJ1sf6iiNhZPVwg" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,Apple Pay,Swift," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LEO'S NOTE" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="在发布近两年、历经各种周折之后，苹果公司的 Apple Pay 移动支付服务终于在2016年2月18日来到了中国大陆。对中国用户来说，移动支付其实已经不是什么陌生事物，抢红包和支付宝早完成用户启蒙。但与这两者有区别的是，Apple Pay 只是苹果搭建的一个支付服务，它链接银行、店面及用户，但又不像支付宝那样把钱存在自己这，这是银联为何会疯狗一样帮推的原因之一。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【iOS】Apple Pay 开发指南（一）">
+<meta property="og:url" content="http://note.leodev.me/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/index.html">
+<meta property="og:site_name" content="LEO'S NOTE">
+<meta property="og:description" content="在发布近两年、历经各种周折之后，苹果公司的 Apple Pay 移动支付服务终于在2016年2月18日来到了中国大陆。对中国用户来说，移动支付其实已经不是什么陌生事物，抢红包和支付宝早完成用户启蒙。但与这两者有区别的是，Apple Pay 只是苹果搭建的一个支付服务，它链接银行、店面及用户，但又不像支付宝那样把钱存在自己这，这是银联为何会疯狗一样帮推的原因之一。">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/Apple_Pay_Payment_Mark.jpg">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay01.png">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay02.png">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay03.png">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay04.png">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay05.png">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay06.png">
+<meta property="og:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay07.png">
+<meta property="og:image" content="http://note.leodev.me/alipay.png">
+<meta property="og:updated_time" content="2016-03-04T07:40:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【iOS】Apple Pay 开发指南（一）">
+<meta name="twitter:description" content="在发布近两年、历经各种周折之后，苹果公司的 Apple Pay 移动支付服务终于在2016年2月18日来到了中国大陆。对中国用户来说，移动支付其实已经不是什么陌生事物，抢红包和支付宝早完成用户启蒙。但与这两者有区别的是，Apple Pay 只是苹果搭建的一个支付服务，它链接银行、店面及用户，但又不像支付宝那样把钱存在自己这，这是银联为何会疯狗一样帮推的原因之一。">
+<meta name="twitter:image" content="http://7xl8ia.com1.z0.glb.clouddn.com/Apple_Pay_Payment_Mark.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13204666,
+      author: 'GODLIKE'
+    }
+  };
+</script>
+
+  <title> 【iOS】Apple Pay 开发指南（一） | LEO'S NOTE </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a28408894a1d0eab2dedfc11c944989d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">LEO'S NOTE</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">心有猛虎 | 细嗅蔷薇</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lol">
+          <a href="http://leodev.me/lol" rel="section">
+            
+              <i class="menu-item-icon fa fa-anchor fa-fw"></i> <br />
+            
+            德玛西亚
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'bPKygs7WQ5i6jj_7zvGT','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【iOS】Apple Pay 开发指南（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-04T12:47:27+08:00" content="2016-03-04">
+              2016-03-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/Apple-Pay/" itemprop="url" rel="index">
+                    <span itemprop="name">Apple Pay</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/Apple-Pay/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/04/iOS-Apple-Pay-Developer-Guide-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/" class="leancloud_visitors" data-flag-title="【iOS】Apple Pay 开发指南（一）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!--<img src="" class="full-image" />-->
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/Apple_Pay_Payment_Mark.jpg" alt="By http://LeoDev.me"></p>
+<p>在发布近两年、历经各种周折之后，苹果公司的 Apple Pay 移动支付服务终于在2016年2月18日来到了中国大陆。<br>对中国用户来说，移动支付其实已经不是什么陌生事物，抢红包和支付宝早完成用户启蒙。但与这两者有区别的是，Apple Pay 只是苹果搭建的一个支付服务，它链接银行、店面及用户，但又不像支付宝那样把钱存在自己这，这是银联为何会疯狗一样帮推的原因之一。</p>
+<a id="more"></a>
+<p>作为开发者，这事还是值得高兴会的，高大上啊，不过代价是又要学习新知识了。。。<br>不过还好，看了看 Apple Pay 的文档，发现事情并没有那么可悲，这玩意还是比较容易搞的。<br>Swift 来一发好了。</p>
+<h2 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h2><ol>
+<li><p>新建项目，打开 Apple Pay 的开关：</p>
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay01.png" alt="By http://LeoDev.me"></p>
+</li>
+<li><p>这时你会发现 Merchant IDs 下面什么都没有，正常，点 + 号，按提示创建一个 Merchant ID：</p>
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay02.png" alt="By http://LeoDev.me"></p>
+<p>当然你也可以前往 <a href="https://developer.apple.com/membercenter" target="_blank" rel="external">开发者中心</a> 创建：</p>
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay03.png" alt="By http://LeoDev.me"></p>
+</li>
+<li><p>创建好了就是这个样子的：</p>
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay04.png" alt="By http://LeoDev.me"></p>
+</li>
+<li><p>打开 ViewController.swift，开心地敲代码吧~<br>完整代码如下，注释比较齐全：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  ViewController.swift</span></span><br><span class="line"><span class="comment">//  ApplePayDemo</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Leo on 16/3/4.</span></span><br><span class="line"><span class="comment">//  Copyright © 2016年 Leo. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> PassKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>, <span class="title">PKPaymentAuthorizationViewControllerDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> iconImage = <span class="type">UIImage</span>.<span class="keyword">init</span>(named: <span class="string">"Apple_Pay_Payment_Mark"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> payBtn = <span class="type">UIButton</span>.<span class="keyword">init</span>(frame: <span class="type">CGRectMake</span>((<span class="type">UIScreen</span>.mainScreen().bounds.size.width - <span class="number">100.0</span>) * <span class="number">0.5</span>, <span class="number">200</span>, <span class="number">100.0</span>, <span class="number">64.0</span>))</span><br><span class="line">        payBtn.setBackgroundImage(iconImage, forState: <span class="type">UIControlState</span>.<span class="type">Normal</span>)</span><br><span class="line">        payBtn.addTarget(<span class="keyword">self</span>, action: <span class="string">"payBtnClicked"</span>, forControlEvents: <span class="type">UIControlEvents</span>.<span class="type">TouchUpInside</span>)</span><br><span class="line">        view.addSubview(payBtn)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     点击了支付按钮</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">payBtnClicked</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查用户是否支持 Apple Pay</span></span><br><span class="line">        <span class="keyword">if</span> !<span class="type">PKPaymentAuthorizationViewController</span>.canMakePayments() &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"设备不支持 Apple Pay"</span>)</span><br><span class="line">            <span class="keyword">let</span> alertView = <span class="type">UIAlertView</span>.<span class="keyword">init</span>(</span><br><span class="line">                title: <span class="string">"设备不支持 Apple Pay"</span>,</span><br><span class="line">                message: <span class="literal">nil</span>,</span><br><span class="line">                delegate: <span class="literal">nil</span>,</span><br><span class="line">                cancelButtonTitle: <span class="string">"确定"</span>)</span><br><span class="line">            alertView.show()</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查是否支持用户卡片</span></span><br><span class="line">        <span class="keyword">var</span> paymentNetworks: [<span class="type">String</span>]!</span><br><span class="line">        <span class="keyword">if</span> #available(iOS <span class="number">9.2</span>, *) &#123;</span><br><span class="line">            paymentNetworks = [</span><br><span class="line">                <span class="type">PKPaymentNetworkVisa</span>,</span><br><span class="line">                <span class="type">PKPaymentNetworkMasterCard</span>,</span><br><span class="line">                <span class="type">PKPaymentNetworkChinaUnionPay</span>]  <span class="comment">// 银联卡要求 iOS 9.2 +</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            paymentNetworks = [</span><br><span class="line">                <span class="type">PKPaymentNetworkVisa</span>,</span><br><span class="line">                <span class="type">PKPaymentNetworkMasterCard</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> !<span class="type">PKPaymentAuthorizationViewController</span>.canMakePaymentsUsingNetworks(paymentNetworks) &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"不支持的卡片类型。目前仅支持 Visa、MasterCard、中国银联卡。"</span>)</span><br><span class="line">            <span class="keyword">let</span> alertView = <span class="type">UIAlertView</span>.<span class="keyword">init</span>(</span><br><span class="line">                title: <span class="string">"不支持的卡片类型"</span>,</span><br><span class="line">                message: <span class="string">"目前仅支持 Visa、MasterCard、中国银联卡。"</span>,</span><br><span class="line">                delegate: <span class="literal">nil</span>,</span><br><span class="line">                cancelButtonTitle: <span class="string">"确定"</span>)</span><br><span class="line">            alertView.show()</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建付款请求</span></span><br><span class="line">        <span class="keyword">let</span> request                  = <span class="type">PKPaymentRequest</span>()</span><br><span class="line">        request.countryCode          = <span class="string">"CN"</span></span><br><span class="line">        request.currencyCode         = <span class="string">"CNY"</span></span><br><span class="line">        request.supportedNetworks    = paymentNetworks</span><br><span class="line">        request.merchantIdentifier   = <span class="string">"merchant.me.leodev.ApplePayDemo"</span></span><br><span class="line">        request.merchantCapabilities = <span class="type">PKMerchantCapability</span>.<span class="type">Capability3DS</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 添加付款项目</span></span><br><span class="line">        <span class="keyword">let</span> item1 = <span class="type">PKPaymentSummaryItem</span>.<span class="keyword">init</span>(label: <span class="string">"美酒"</span>, amount: <span class="type">NSDecimalNumber</span>.<span class="keyword">init</span>(double: <span class="number">99.99</span>))</span><br><span class="line">        <span class="keyword">let</span> item2 = <span class="type">PKPaymentSummaryItem</span>.<span class="keyword">init</span>(label: <span class="string">"咖啡"</span>, amount: <span class="type">NSDecimalNumber</span>.<span class="keyword">init</span>(double: <span class="number">29.99</span>))</span><br><span class="line">        <span class="keyword">let</span> item3 = <span class="type">PKPaymentSummaryItem</span>.<span class="keyword">init</span>(label: <span class="string">"小费"</span>, amount: <span class="type">NSDecimalNumber</span>.<span class="keyword">init</span>(double: <span class="number">19.99</span>))</span><br><span class="line">        <span class="keyword">let</span> item4 = <span class="type">PKPaymentSummaryItem</span>.<span class="keyword">init</span>(label: <span class="string">"超哥"</span>, amount: <span class="type">NSDecimalNumber</span>.<span class="keyword">init</span>(double: <span class="number">149.97</span>))</span><br><span class="line">        request.paymentSummaryItems = [item1, item2, item3, item4]</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化 PKPaymentAuthorizationViewController 并显示</span></span><br><span class="line">        <span class="keyword">let</span> authViewController = <span class="type">PKPaymentAuthorizationViewController</span>.<span class="keyword">init</span>(paymentRequest: request)</span><br><span class="line">        authViewController.delegate = <span class="keyword">self</span></span><br><span class="line">        presentViewController(authViewController, animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// MARK: - PKPaymentAuthorizationViewControllerDelegate</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    处理交易数据，并把状态返回给应用</span><br><span class="line"></span><br><span class="line">    - parameter controller: 当前的 PKPaymentAuthorizationViewController</span><br><span class="line">    - parameter payment:    payment</span><br><span class="line">    - parameter completion: 返回</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationViewController</span><span class="params">(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: <span class="params">(PKPaymentAuthorizationStatus)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> paymentToken = payment.token</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"\(paymentToken)"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 超哥交易成功了</span></span><br><span class="line">        completion(.<span class="type">Success</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 交易成功应该 push 个交易成功的界面什么的</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     支付完成，隐藏 PKPaymentAuthorizationViewController</span><br><span class="line"></span><br><span class="line">     - parameter controller: 当前的 PKPaymentAuthorizationViewController</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationViewControllerDidFinish</span><span class="params">(controller: PKPaymentAuthorizationViewController)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.dismissViewControllerAnimated(<span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>收工。</strong></p>
+</li>
+</ol>
+<p>想想支付宝和微信支付， Pay 真 TM 简单啊。。。</p>
+<p><strong>源码</strong>：<a href="https://github.com/LeoiOS/ApplePayDemo" target="_blank" rel="external">GitHub</a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay05.png" alt="By http://LeoDev.me"></p>
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay06.png" alt="By http://LeoDev.me"></p>
+<p><img src="http://7xl8ia.com1.z0.glb.clouddn.com/ApplePay07.png" alt="By http://LeoDev.me"></p>
+<h2 id="附一-currencyCode"><a href="#附一-currencyCode" class="headerlink" title="附一 currencyCode"></a>附一 currencyCode</h2><p>ADP,<br>AED,<br>AFA,<br>AFN,<br>ALK,<br>ALL,<br>AMD,<br>ANG,<br>AOA,<br>AOK,<br>AON,<br>AOR,<br>ARA,<br>ARL,<br>ARM,<br>ARP,<br>ARS,<br>ATS,<br>AUD,<br>AWG,<br>AZM,<br>AZN,<br>BAD,<br>BAM,<br>BAN,<br>BBD,<br>BDT,<br>BEC,<br>BEF,<br>BEL,<br>BGL,<br>BGM,<br>BGN,<br>BGO,<br>BHD,<br>BIF,<br>BMD,<br>BND,<br>BOB,<br>BOL,<br>BOP,<br>BOV,<br>BRB,<br>BRC,<br>BRE,<br>BRL,<br>BRN,<br>BRR,<br>BRZ,<br>BSD,<br>BTN,<br>BUK,<br>BWP,<br>BYB,<br>BYR,<br>BZD,<br>CAD,<br>CDF,<br>CHE,<br>CHF,<br>CHW,<br>CLE,<br>CLF,<br>CLP,<br>CNX,<br>CNY,<br>COP,<br>COU,<br>CRC,<br>CSD,<br>CSK,<br>CUC,<br>CUP,<br>CVE,<br>CYP,<br>CZK,<br>DDM,<br>DEM,<br>DJF,<br>DKK,<br>DOP,<br>DZD,<br>ECS,<br>ECV,<br>EEK,<br>EGP,<br>EQE,<br>ERN,<br>ESA,<br>ESB,<br>ESP,<br>ETB,<br>EUR,<br>FIM,<br>FJD,<br>FKP,<br>FRF,<br>GBP,<br>GEK,<br>GEL,<br>GHC,<br>GHS,<br>GIP,<br>GMD,<br>GNF,<br>GNS,<br>GQE,<br>GRD,<br>GTQ,<br>GWE,<br>GWP,<br>GYD,<br>HKD,<br>HNL,<br>HRD,<br>HRK,<br>HTG,<br>HUF,<br>IDR,<br>IEP,<br>ILP,<br>ILR,<br>ILS,<br>INR,<br>IQD,<br>IRR,<br>ISJ,<br>ISK,<br>ITL,<br>JMD,<br>JOD,<br>JPY,<br>KES,<br>KGS,<br>KHR,<br>KMF,<br>KPW,<br>KRH,<br>KRO,<br>KRW,<br>KWD,<br>KYD,<br>KZT,<br>LAK,<br>LBP,<br>LKR,<br>LRD,<br>LSL,<br>LSM,<br>LTL,<br>LTT,<br>LUC,<br>LUF,<br>LUL,<br>LVL,<br>LVR,<br>LYD,<br>MAD,<br>MAF,<br>MCF,<br>MDC,<br>MDL,<br>MGA,<br>MGF,<br>MKD,<br>MKN,<br>MLF,<br>MMK,<br>MNT,<br>MOP,<br>MRO,<br>MTL,<br>MTP,<br>MUR,<br>MVP,<br>MVR,<br>MWK,<br>MXN,<br>MXP,<br>MXV,<br>MYR,<br>MZE,<br>MZM,<br>MZN,<br>NAD,<br>NGN,<br>NIC,<br>NIO,<br>NLG,<br>NOK,<br>NPR,<br>NZD,<br>OMR,<br>PAB,<br>PEI,<br>PEN,<br>PES,<br>PGK,<br>PHP,<br>PKR,<br>PLN,<br>PLZ,<br>PTE,<br>PYG,<br>QAR,<br>RHD,<br>ROL,<br>RON,<br>RSD,<br>RUB,<br>RUR,<br>RWF,<br>SAR,<br>SBD,<br>SCR,<br>SDD,<br>SDG,<br>SDP,<br>SEK,<br>SGD,<br>SHP,<br>SIT,<br>SKK,<br>SLL,<br>SOS,<br>SRD,<br>SRG,<br>SSP,<br>STD,<br>SUR,<br>SVC,<br>SYP,<br>SZL,<br>THB,<br>TJR,<br>TJS,<br>TMM,<br>TMT,<br>TND,<br>TOP,<br>TPE,<br>TRL,<br>TRY,<br>TTD,<br>TWD,<br>TZS,<br>UAH,<br>UAK,<br>UGS,<br>UGX,<br>USD,<br>USN,<br>USS,<br>UYI,<br>UYP,<br>UYU,<br>UZS,<br>VEB,<br>VEF,<br>VND,<br>VNN,<br>VUV,<br>WST,<br>XAF,<br>XAG,<br>XAU,<br>XBA,<br>XBB,<br>XBC,<br>XBD,<br>XCD,<br>XDR,<br>XEU,<br>XFO,<br>XFU,<br>XOF,<br>XPD,<br>XPF,<br>XPT,<br>XRE,<br>XSU,<br>XTS,<br>XUA,<br>XXX,<br>YDD,<br>YER,<br>YUD,<br>YUM,<br>YUN,<br>YUR,<br>ZAL,<br>ZAR,<br>ZMK,<br>ZMW,<br>ZRN,<br>ZRZ,<br>ZWL,<br>ZWR,<br>ZWD</p>
+<h2 id="附二-countryCode"><a href="#附二-countryCode" class="headerlink" title="附二 countryCode"></a>附二 countryCode</h2><p>AD,<br>AE,<br>AF,<br>AG,<br>AI,<br>AL,<br>AM,<br>AO,<br>AQ,<br>AR,<br>AS,<br>AT,<br>AU,<br>AW,<br>AX,<br>AZ,<br>BA,<br>BB,<br>BD,<br>BE,<br>BF,<br>BG,<br>BH,<br>BI,<br>BJ,<br>BL,<br>BM,<br>BN,<br>BO,<br>BQ,<br>BR,<br>BS,<br>BT,<br>BV,<br>BW,<br>BY,<br>BZ,<br>CA,<br>CC,<br>CD,<br>CF,<br>CG,<br>CH,<br>CI,<br>CK,<br>CL,<br>CM,<br>CN,<br>CO,<br>CR,<br>CU,<br>CV,<br>CW,<br>CX,<br>CY,<br>CZ,<br>DE,<br>DJ,<br>DK,<br>DM,<br>DO,<br>DZ,<br>EC,<br>EE,<br>EG,<br>EH,<br>ER,<br>ES,<br>ET,<br>FI,<br>FJ,<br>FK,<br>FM,<br>FO,<br>FR,<br>GA,<br>GB,<br>GD,<br>GE,<br>GF,<br>GG,<br>GH,<br>GI,<br>GL,<br>GM,<br>GN,<br>GP,<br>GQ,<br>GR,<br>GS,<br>GT,<br>GU,<br>GW,<br>GY,<br>HK,<br>HM,<br>HN,<br>HR,<br>HT,<br>HU,<br>ID,<br>IE,<br>IL,<br>IM,<br>IN,<br>IO,<br>IQ,<br>IR,<br>IS,<br>IT,<br>JE,<br>JM,<br>JO,<br>JP,<br>KE,<br>KG,<br>KH,<br>KI,<br>KM,<br>KN,<br>KP,<br>KR,<br>KW,<br>KY,<br>KZ,<br>LA,<br>LB,<br>LC,<br>LI,<br>LK,<br>LR,<br>LS,<br>LT,<br>LU,<br>LV,<br>LY,<br>MA,<br>MC,<br>MD,<br>ME,<br>MF,<br>MG,<br>MH,<br>MK,<br>ML,<br>MM,<br>MN,<br>MO,<br>MP,<br>MQ,<br>MR,<br>MS,<br>MT,<br>MU,<br>MV,<br>MW,<br>MX,<br>MY,<br>MZ,<br>NA,<br>NC,<br>NE,<br>NF,<br>NG,<br>NI,<br>NL,<br>NO,<br>NP,<br>NR,<br>NU,<br>NZ,<br>OM,<br>PA,<br>PE,<br>PF,<br>PG,<br>PH,<br>PK,<br>PL,<br>PM,<br>PN,<br>PR,<br>PS,<br>PT,<br>PW,<br>PY,<br>QA,<br>RE,<br>RO,<br>RS,<br>RU,<br>RW,<br>SA,<br>SB,<br>SC,<br>SD,<br>SE,<br>SG,<br>SH,<br>SI,<br>SJ,<br>SK,<br>SL,<br>SM,<br>SN,<br>SO,<br>SR,<br>SS,<br>ST,<br>SV,<br>SX,<br>SY,<br>SZ,<br>TC,<br>TD,<br>TF,<br>TG,<br>TH,<br>TJ,<br>TK,<br>TL,<br>TM,<br>TN,<br>TO,<br>TR,<br>TT,<br>TV,<br>TW,<br>TZ,<br>UA,<br>UG,<br>UM,<br>US,<br>UY,<br>UZ,<br>VA,<br>VC,<br>VE,<br>VG,<br>VI,<br>VN,<br>VU,<br>WF,<br>WS,<br>YE,<br>YT,<br>ZA,<br>ZM,<br>ZW</p>
+<h2 id="联系与捐赠"><a href="#联系与捐赠" class="headerlink" title="联系与捐赠"></a>联系与捐赠</h2><ul>
+<li>Mail: devtip#163.com</li>
+<li>GitHub:    <a href="https://github.com/LeoiOS" target="_blank" rel="external">LeoiOS</a></li>
+<li><p>如果你想对我的开发或是开源项目进行支持捐助，请扫描下方二维码，谢谢！👇</p>
+<p><img src="/alipay.png" alt="LEO"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/Apple-Pay/" rel="tag">#Apple Pay</a>
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/" rel="next" title="【Mac】终端常见的 Vim 命令">
+                <i class="fa fa-chevron-left"></i> 【Mac】终端常见的 Vim 命令
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/07/iOS-Swifty-methods/" rel="prev" title="【iOS】用 Swift 来写 Swift 的方法">
+                【iOS】用 Swift 来写 Swift 的方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/04/iOS-Apple-Pay-Developer-Guide-1/"
+     data-title="【iOS】Apple Pay 开发指南（一）"
+     data-content=""
+     data-url="http://note.leodev.me/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/04/iOS-Apple-Pay-Developer-Guide-1/"
+           data-title="【iOS】Apple Pay 开发指南（一）" data-url="http://note.leodev.me/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xl8ia.com1.z0.glb.clouddn.com/Jack.png"
+               alt="Leo" />
+          <p class="site-author-name" itemprop="name">Leo</p>
+          <p class="site-description motion-element" itemprop="description">Stay Hungry.<br>Stay Foolish.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://leodev.me" target="_blank">
+                  
+                    <i class="fa fa-cube"></i>
+                  
+                  Cover
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LeoiOS" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://api.leodev.me:3000" target="_blank">
+                  
+                    <i class="fa fa-git"></i>
+                  
+                  GitLeo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/coderleo" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/LeoiOS" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://note.leodev.me/resume.pdf" target="_blank">
+                  
+                    <i class="fa fa-heartbeat"></i>
+                  
+                  CV
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/LeoiOS" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.leodong.com" target="_blank">Another</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://eizoios.com" target="_blank">隔壁老王</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tsusolo.com" target="_blank">TT</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发步骤"><span class="nav-number">1.</span> <span class="nav-text">开发步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附一-currencyCode"><span class="nav-number">3.</span> <span class="nav-text">附一 currencyCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附二-countryCode"><span class="nav-number">4.</span> <span class="nav-text">附二 countryCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系与捐赠"><span class="nav-number">5.</span> <span class="nav-text">联系与捐赠</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo</span>
+</div>
+
+<div class="powered-by">
+  基于 <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  <a class="theme-link" href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备16000856号</a>
+</div>
+
+<!--<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>-->
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leodev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("QASwweQvuowvf8NYwN65dgmR-gzGzoHsz", "cqGrdJ6TgCMkE13DMmsjhyy4");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
