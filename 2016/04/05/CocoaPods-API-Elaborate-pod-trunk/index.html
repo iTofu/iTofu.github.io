@@ -1,0 +1,1000 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="zILgsgi5ER8p5_XVo4E0YCH4sILBEzNS-vkKyE8C39E" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CocoaPods,Pod,iOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LEO'S NOTE" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前几天手贱改了下 GitHub 用户名（LeoiOS -&amp;gt; iTofu），然后发现整个世界都崩溃了。。。">
+<meta name="keywords" content="CocoaPods,Pod,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【CocoaPods】细说 pod trunk">
+<meta property="og:url" content="https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/index.html">
+<meta property="og:site_name" content="LEO&#39;S NOTE">
+<meta property="og:description" content="前几天手贱改了下 GitHub 用户名（LeoiOS -&amp;gt; iTofu），然后发现整个世界都崩溃了。。。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://oi5xk258d.qnssl.com/QQ20151231-0%402x.png">
+<meta property="og:image" content="https://cdnqiniu.leodev.me/donate.png">
+<meta property="og:updated_time" content="2018-01-16T07:16:23.746Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【CocoaPods】细说 pod trunk">
+<meta name="twitter:description" content="前几天手贱改了下 GitHub 用户名（LeoiOS -&amp;gt; iTofu），然后发现整个世界都崩溃了。。。">
+<meta name="twitter:image" content="https://oi5xk258d.qnssl.com/QQ20151231-0%402x.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/"/>
+
+
+
+
+
+  <title> 【CocoaPods】细说 pod trunk | LEO'S NOTE </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83213218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ca0e9ed35135eb5508e91e7fad4ba77c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEO'S NOTE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有猛虎 | 细嗅蔷薇</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lol">
+          <a href="https://leodev.me/lol" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-anchor"></i> <br />
+            
+            德玛西亚
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'bPKygs7WQ5i6jj_7zvGT','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://oi5xk258d.qnssl.com/ps4.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEO'S NOTE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【CocoaPods】细说 pod trunk
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-05T16:04:22+08:00">
+                2016-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CocoaPods/" itemprop="url" rel="index">
+                    <span itemprop="name">CocoaPods</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CocoaPods/Pod/" itemprop="url" rel="index">
+                    <span itemprop="name">Pod</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CocoaPods/Pod/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/04/05/CocoaPods-API-Elaborate-pod-trunk/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- <img src="https://oi5xk258d.qnssl.com/QQ20151231-0%402x.png" class="full-image" /> -->
+<p><img src="https://oi5xk258d.qnssl.com/QQ20151231-0%402x.png" alt="https://LeoDev.me"></p>
+<p>前几天手贱改了下 <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> 用户名（<a href="https://github.com/LeoiOS" target="_blank" rel="noopener">LeoiOS</a> -&gt; <a href="https://github.com/iTofu" target="_blank" rel="noopener">iTofu</a>），然后发现整个世界都崩溃了。。。</p>
+<a id="more"></a>
+<h2 id="逗比的开始"><a href="#逗比的开始" class="headerlink" title="逗比的开始"></a>逗比的开始</h2><p>如个人博客等各处 GitHub 链接慢慢找出来替换（直到现在我都不确定全部替换完了。。。），CocoaPods 上个人库源地址逐个更新。。。（此处略去一千字）</p>
+<p>在更新 CocoaPods 库源地址的时候还发现一个悲催的问题，我修改完 GitHub 用户名后再去更新库，不让我更了。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[!] You are not allowed to push new versions for this pod.</span><br></pre></td></tr></table></figure>
+<p>我勒个去，这。。。这是要挨骂的节奏？亲爱的用户们轻拍。。。第一反应是去啃 CocoaPods 文档，想了想，啃啥文档，直接去提了个 <a href="https://github.com/CocoaPods/CocoaPods/issues/5109" target="_blank" rel="noopener">Issue</a>。。。所幸作为开源社区的一份子，CocoaPods 的开发者们尤其友好，主要开发者之一 <a href="https://github.com/segiddins" target="_blank" rel="noopener">segiddins</a> 很快也很热心地帮我解决了这个问题。</p>
+<h2 id="原来如此"><a href="#原来如此" class="headerlink" title="原来如此"></a>原来如此</h2><p>在 <a href="https://github.com/segiddins" target="_blank" rel="noopener">segiddins</a> 的解释下弄清楚了，其实这个问题并非因为我更换 GitHub 用户名产生（P关系都木），而是我更换了邮箱地址，导致 CocoaPods 认为我是另一名用户，进而中断了我的更新请求。</p>
+<h2 id="我是这样解决的"><a href="#我是这样解决的" class="headerlink" title="我是这样解决的"></a>我是这样解决的</h2><p>解决方案也不复杂，流程如下：</p>
+<ul>
+<li>用原邮箱登录（确认库拥有者身份）</li>
+<li>添加新邮箱到目标库的拥有者列表</li>
+<li>用新邮箱登录</li>
+<li>（可选）从目标库的拥有者列表移除老邮箱</li>
+</ul>
+<p>命令是这样的：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register [OLD EMAIL] [USERNAME]</span><br><span class="line">pod trunk add-owner [POD REP NAME] [NEW EMAIL]</span><br><span class="line"></span><br><span class="line">pod trunk register [NEW EMAIL] [USERNAME]</span><br><span class="line">pod trunk remove-owner [POD REP NAME] [OLD EMAIL]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：<a href="https://guides.cocoapods.org/terminal/commands.html#group_trunk" target="_blank" rel="noopener">CocoaPods API</a></p>
+</blockquote>
+<p>哦了，解决了~ 再次向友好的 <a href="https://github.com/segiddins" target="_blank" rel="noopener">segiddins</a> 致谢~</p>
+<h2 id="加点料，细说-Pod-trunk"><a href="#加点料，细说-Pod-trunk" class="headerlink" title="加点料，细说 Pod trunk"></a>加点料，细说 Pod trunk</h2><p>安利一下可能是你用 CocoaPods 时打交道最多的 <code>pod trunk</code> ，其实呢，这些命令在 <a href="https://guides.cocoapods.org/terminal/commands.html#group_trunk" target="_blank" rel="noopener">CocoaPods API</a> 上都能找得到，只不过老外的思维和我们略有不同，你可能不知道这个命令原来是干这个的罢了。好比上面这个问题，老外提供的这几个步骤（德国人吧这么认真。。。），如果是国人写的话可能直接一个 <code>pod trunk change owner A to B</code> 命令就完了。。。</p>
+<h3 id="pod-trunk-register-EMAIL-USERNAME"><a href="#pod-trunk-register-EMAIL-USERNAME" class="headerlink" title="pod trunk register [EMAIL] [USERNAME]"></a>pod trunk register [EMAIL] [USERNAME]</h3><p>注册&amp;登录。</p>
+<p>在你的 Mac 上只需要运行一次，然后去邮箱中点击确认邮件的链接即可，当然你也可以使用该命令在不同的账号中来回切换。<br>示例：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register devtip@163.com <span class="string">`Leo`</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="pod-trunk-push-PATH"><a href="#pod-trunk-push-PATH" class="headerlink" title="pod trunk push [PATH]"></a>pod trunk push [PATH]</h3><p>发布库。</p>
+<p>我一般在本地操作，PATH 一般就是 PodRepName.podspec。不过官网文档上说 PATH 缺省是当前目录，所以 cd 到库的本地目录，然后直接 <code>pod trunk push</code> 应该也是可以滴！<br>示例：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push LCActionSheet.podspec</span><br><span class="line">...</span><br><span class="line">Done!</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="pod-trunk-me"><a href="#pod-trunk-me" class="headerlink" title="pod trunk me"></a>pod trunk me</h3><p>查看自己的账号信息，以及账号拥有的仓库。</p>
+<p>示例：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">bogon:</span>hexo Leo$ pod trunk me</span><br><span class="line">  - <span class="symbol">Name:</span>     Leo</span><br><span class="line">  - <span class="symbol">Email:</span>    devtip@163.com</span><br><span class="line">  - <span class="symbol">Since:</span>    April <span class="number">1</span>st, <span class="number">05</span><span class="symbol">:</span>09</span><br><span class="line">  - <span class="symbol">Pods:</span></span><br><span class="line">    - LCActionSheet</span><br><span class="line">    - LCNewFeature</span><br><span class="line">    - LCProgressHUD</span><br><span class="line">    - LCDownloadManager</span><br><span class="line">    - LCLoadingHUD</span><br><span class="line">    - LCCoolHUD</span><br><span class="line">    - LCNavigationController</span><br><span class="line">    - LCBannerView</span><br><span class="line">    - LCTabBarController</span><br><span class="line">    - LCTabBarControllerForLM</span><br><span class="line">  - <span class="symbol">Sessions:</span></span><br><span class="line">    - April <span class="number">1</span>st, <span class="number">05</span><span class="symbol">:</span>09 -  August <span class="number">7</span>th, <span class="symbol">xx:</span><span class="number">22</span>. <span class="symbol">IP:</span> xxx.xxx.xx.xxx</span><br><span class="line">    - April <span class="number">4</span>th, <span class="number">20</span><span class="symbol">:</span><span class="number">44</span> - August <span class="number">10</span>th, <span class="symbol">xx:</span><span class="number">58</span>. <span class="symbol">IP:</span> xxx.xxx.xx.xxx</span><br><span class="line">    - April <span class="number">4</span>th, <span class="number">21</span><span class="symbol">:</span><span class="number">37</span> - August <span class="number">12</span>th, <span class="symbol">xx:</span><span class="number">33</span>. <span class="symbol">IP:</span> xxx.xxx.xx.xxx</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="pod-trunk-info-POD-REP-NAME"><a href="#pod-trunk-info-POD-REP-NAME" class="headerlink" title="pod trunk info [POD REP NAME]"></a>pod trunk info [POD REP NAME]</h3><p>查看某个库的信息，包括拥有者、各版本版本号及发布时间。</p>
+<p>示例：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">bogon:</span>hexo Leo$ pod trunk info LCActionSheet</span><br><span class="line"></span><br><span class="line">LCActionSheet</span><br><span class="line">    - <span class="symbol">Versions:</span></span><br><span class="line">      - <span class="number">1.0</span>.<span class="number">1</span> (<span class="number">2015</span>-<span class="number">11</span>-09 <span class="number">05</span><span class="symbol">:</span><span class="number">43</span><span class="symbol">:</span><span class="number">23</span> UTC)</span><br><span class="line">      - <span class="number">1.0</span>.<span class="number">2</span> (<span class="number">2015</span>-<span class="number">11</span>-09 <span class="number">06</span><span class="symbol">:</span>08<span class="symbol">:</span><span class="number">47</span> UTC)</span><br><span class="line">      - <span class="number">1.0</span>.<span class="number">5</span> (<span class="number">2015</span>-<span class="number">11</span>-09 08<span class="symbol">:</span><span class="number">14</span><span class="symbol">:</span><span class="number">53</span> UTC)</span><br><span class="line">      - <span class="number">1.0</span>.<span class="number">6</span> (<span class="number">2015</span>-<span class="number">11</span>-09 08<span class="symbol">:</span><span class="number">28</span><span class="symbol">:</span><span class="number">27</span> UTC)</span><br><span class="line">      - <span class="number">1.1</span>.<span class="number">0</span> (<span class="number">2015</span>-<span class="number">12</span>-<span class="number">07</span> <span class="number">04</span><span class="symbol">:</span><span class="number">49</span><span class="symbol">:</span><span class="number">24</span> UTC)</span><br><span class="line">      - <span class="number">1.1</span>.<span class="number">1</span> (<span class="number">2015</span>-<span class="number">12</span>-09 <span class="number">11</span><span class="symbol">:</span><span class="number">12</span><span class="symbol">:</span><span class="number">05</span> UTC)</span><br><span class="line">      - <span class="number">1.1</span>.<span class="number">3</span> (<span class="number">2015</span>-<span class="number">12</span>-<span class="number">16</span> <span class="number">10</span><span class="symbol">:</span><span class="number">18</span><span class="symbol">:</span><span class="number">15</span> UTC)</span><br><span class="line">      - <span class="number">1.1</span>.<span class="number">5</span> (<span class="number">2016</span>-<span class="number">02</span>-<span class="number">17</span> <span class="number">10</span><span class="symbol">:</span><span class="number">59</span><span class="symbol">:</span><span class="number">12</span> UTC)</span><br><span class="line">      - <span class="number">1.2</span>.<span class="number">0</span> (<span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">02</span><span class="symbol">:</span><span class="number">23</span><span class="symbol">:</span><span class="number">21</span> UTC)</span><br><span class="line">      - <span class="number">1.2</span>.<span class="number">1</span> (<span class="number">2016</span>-<span class="number">03</span>-<span class="number">15</span> <span class="number">11</span><span class="symbol">:</span><span class="number">01</span><span class="symbol">:</span><span class="number">57</span> UTC)</span><br><span class="line">      - <span class="number">1.2</span>.<span class="number">2</span> (<span class="number">2016</span>-<span class="number">04</span>-<span class="number">05</span> <span class="number">03</span><span class="symbol">:</span><span class="number">03</span><span class="symbol">:</span><span class="number">16</span> UTC)</span><br><span class="line">      - <span class="number">1.2</span>.<span class="number">3</span> (<span class="number">2016</span>-<span class="number">04</span>-<span class="number">05</span> <span class="number">04</span><span class="symbol">:</span><span class="number">22</span><span class="symbol">:</span><span class="number">12</span> UTC)</span><br><span class="line">    - <span class="symbol">Owners:</span></span><br><span class="line">      - Leo &lt;devtip@163.com&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="pod-trunk-add-owner-POD-REP-NAME-OWNER-EMAIL"><a href="#pod-trunk-add-owner-POD-REP-NAME-OWNER-EMAIL" class="headerlink" title="pod trunk add-owner [POD REP NAME] [OWNER-EMAIL]"></a>pod trunk add-owner [POD REP NAME] [OWNER-EMAIL]</h3><h3 id="pod-trunk-remove-owner-POD-REP-NAME-OWNER-EMAIL"><a href="#pod-trunk-remove-owner-POD-REP-NAME-OWNER-EMAIL" class="headerlink" title="pod trunk remove-owner [POD REP NAME] [OWNER-EMAIL]"></a>pod trunk remove-owner [POD REP NAME] [OWNER-EMAIL]</h3><p>添加/移除某个库的拥有者，上文有提到该命令。</p>
+<p>你必须先运行过 <code>pod trunk register</code> 登录过，并且操作的是你账号拥有的库。</p>
+<hr>
+<h3 id="pod-trunk-deprecate-POD-REP-NAME"><a href="#pod-trunk-deprecate-POD-REP-NAME" class="headerlink" title="pod trunk deprecate [POD REP NAME]"></a>pod trunk deprecate [POD REP NAME]</h3><p>不赞成使用，让某个库过期的意思。</p>
+<p>如果导入声明 deprecate 的库，应该会收到警告。<br>该命令貌似是 CocoaPods V 1.0.0 推出来的，由于目前 V 1.0.0 是 beta 版，我使用的正式版是 V 0.39.0，所以暂时无法演示该命令。</p>
+<hr>
+<h3 id="pod-trunk-delete-POD-REP-NAME-VERSION"><a href="#pod-trunk-delete-POD-REP-NAME-VERSION" class="headerlink" title="pod trunk delete [POD REP NAME] [VERSION]"></a>pod trunk delete [POD REP NAME] [VERSION]</h3><p>删除某个库的某个版本，该行为不可回退。</p>
+<p>⚠️ 官方文档也明确表示 <strong>不赞成</strong> 使用该命令，建议使用 <code>pod trunk deprecate</code> 代替，以防止导入该库的用户项目无法运行，请注意这是一种及其不友好且让人恼火的行为！<br>该命令暂无示例，原因同上条。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>顺带吐槽下国内社区对 CocoaPods 等开源项目的关注度，比如 CocoaPods，用国内的搜索引擎某度搜到的百分之九十九都是安装教程，更新教程，我靠。。。面包有了我们能不能考虑考虑黄油？</p>
+<p>再提下，好像 GitHub Pages 的 <a href="https://help.pages.github.com/" target="_blank" rel="noopener">帮助页</a> 被墙了？貌似是这几天某站在亚太放了台服务器，然后某墙新增屏蔽时的误操作？各位珍重。。。</p>
+<h2 id="联系与捐赠"><a href="#联系与捐赠" class="headerlink" title="联系与捐赠"></a>联系与捐赠</h2><ul>
+<li>Mail：<code>echo ZGV2dGlwQDE2My5jb20K | base64 -D</code></li>
+<li>GitHub：<a href="https://github.com/iTofu" target="_blank" rel="noopener">iTofu</a></li>
+<li><p>如果你想对我的开发或是开源项目进行支持捐助，请扫描下方二维码，谢谢！👇</p>
+<p><img src="https://cdnqiniu.leodev.me/donate.png" alt="LEO"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>🍭 支持一根棒棒糖！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward_wechatpay.png" alt="Leo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward_alipay.png" alt="Leo Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Leo
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/" title="【CocoaPods】细说 pod trunk">https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CocoaPods/" rel="tag"># CocoaPods</a>
+          
+            <a href="/tags/Pod/" rel="tag"># Pod</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/22/iOS-Xcode-Plugins-Version-Support/" rel="next" title="【iOS】Xcode 插件过时怎么办？">
+                <i class="fa fa-chevron-left"></i> 【iOS】Xcode 插件过时怎么办？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/iOS-UITextView-Auto-Scroll/" rel="prev" title="【iOS】UITextView 自动滚动">
+                【iOS】UITextView 自动滚动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://oi5xk258d.qnssl.com/ps4.jpg"
+               alt="Leo" />
+          <p class="site-author-name" itemprop="name">Leo</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay Hungry.<br>Stay Foolish.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://eizoios.com" title="隔壁老王" target="_blank">隔壁老王</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://poche.fm" title="破车推荐" target="_blank">破车推荐</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tsusolo.com" title="TT" target="_blank">TT</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ldaqiangl.com" title="大强" target="_blank">大强</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://iamyunfei.com/" title="F.E.Maniac" target="_blank">F.E.Maniac</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逗比的开始"><span class="nav-number">1.</span> <span class="nav-text">逗比的开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原来如此"><span class="nav-number">2.</span> <span class="nav-text">原来如此</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我是这样解决的"><span class="nav-number">3.</span> <span class="nav-text">我是这样解决的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加点料，细说-Pod-trunk"><span class="nav-number">4.</span> <span class="nav-text">加点料，细说 Pod trunk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-register-EMAIL-USERNAME"><span class="nav-number">4.1.</span> <span class="nav-text">pod trunk register [EMAIL] [USERNAME]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-push-PATH"><span class="nav-number">4.2.</span> <span class="nav-text">pod trunk push [PATH]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-me"><span class="nav-number">4.3.</span> <span class="nav-text">pod trunk me</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-info-POD-REP-NAME"><span class="nav-number">4.4.</span> <span class="nav-text">pod trunk info [POD REP NAME]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-add-owner-POD-REP-NAME-OWNER-EMAIL"><span class="nav-number">4.5.</span> <span class="nav-text">pod trunk add-owner [POD REP NAME] [OWNER-EMAIL]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-remove-owner-POD-REP-NAME-OWNER-EMAIL"><span class="nav-number">4.6.</span> <span class="nav-text">pod trunk remove-owner [POD REP NAME] [OWNER-EMAIL]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-deprecate-POD-REP-NAME"><span class="nav-number">4.7.</span> <span class="nav-text">pod trunk deprecate [POD REP NAME]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-trunk-delete-POD-REP-NAME-VERSION"><span class="nav-number">4.8.</span> <span class="nav-text">pod trunk delete [POD REP NAME] [VERSION]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话"><span class="nav-number">5.</span> <span class="nav-text">题外话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系与捐赠"><span class="nav-number">6.</span> <span class="nav-text">联系与捐赠</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://leodev.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/';
+          this.page.identifier = '2016/04/05/CocoaPods-API-Elaborate-pod-trunk/';
+          this.page.title = '【CocoaPods】细说 pod trunk';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://leodev.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
