@@ -106,7 +106,7 @@
 <meta property="og:description" content="本文记录了第一次安装 Node.js 的详细过程，以及遇到的一些问题。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cdnqiniu.leodev.me/nodejslogo.png">
-<meta property="og:updated_time" content="2018-03-30T06:58:39.711Z">
+<meta property="og:updated_time" content="2018-04-02T03:36:36.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js 安装笔记">
 <meta name="twitter:description" content="本文记录了第一次安装 Node.js 的详细过程，以及遇到的一些问题。">
@@ -506,12 +506,12 @@
 <p> 我这里是：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">使用内建 specs。</span><br><span class="line">COLLECT_GCC=gcc</span><br><span class="line">COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper</span><br><span class="line">目标：x86_64-pc-linux-gnu</span><br><span class="line">配置为：../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib</span><br><span class="line">线程模型：posix</span><br><span class="line">gcc 版本 7.3.0 (GCC)</span><br></pre></td></tr></table></figure>
 <p> 完了吗？</p>
-<p> emmm… 不会有无缘无故的问句的对吧… 实际上，升级 gcc 生成的动态库并没有替换老版本的动态库，让我们去替换一下。</p>
+<p> emmm… 不会有无缘无故的问句的对吧… 实际上，升级 gcc 生成的动态库并没有替换老版本的动态库，我们去手动替换一下。</p>
 </li>
 <li><p>查找编译 gcc 时生成的最新动态库：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name &quot;libstdc++.so*&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将找到的动态库 libstdc++.so.6.0.21 复制到 /usr/lib64 ：</p>
+<li><p>将找到的动态库 libstdc++.so.6.0.24 复制到 /usr/lib64 ：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/src/gcc-7.3.0/gcc-build-7.3.0/stage1-x86_64-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.24 /usr/lib64</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>切换工作目录至 /usr/lib64，删除原来的软链接， 将默认库的软链接指向最新动态库：</p>
