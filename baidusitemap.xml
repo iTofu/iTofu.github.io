@@ -4,6 +4,61 @@
 
     
   <url>
+    <loc>https://note.leodev.me/2018/04/11/iOS-NSJSONSerialization-options/</loc>
+    <lastmod>2018-04-11T03:19:43.435Z</lastmod>
+    <data>
+        <display>
+        <title>NSJSONSerialization 中各参数说明</title>
+        <pubTime>2018-04-11T02:58:21.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>JSON</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/</loc>
+    <lastmod>2018-04-11T03:14:38.341Z</lastmod>
+    <data>
+        <display>
+        <title>【Mac】终端常见的 Vim 命令</title>
+        <pubTime>2016-02-22T02:28:52.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>Vim</tag>
+         
+        <tag>Terminal</tag>
+         
+        <tag>Command</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="Vim" url="https://note.leodev.me/categories/Mac/Vim/"/>
+          
+             
+              <breadCrumb title="Terminal" url="https://note.leodev.me/categories/Mac/Vim/Terminal/"/>
+          
+             
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://note.leodev.me/2018/03/30/nodejs-installation-notes/</loc>
     <lastmod>2018-04-02T03:36:36.499Z</lastmod>
     <data>
@@ -64,6 +119,31 @@
 
     
   <url>
+    <loc>https://note.leodev.me/2016/03/22/iOS-Xcode-Plugins-Version-Support/</loc>
+    <lastmod>2018-01-16T07:16:23.752Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】Xcode 插件过时怎么办？</title>
+        <pubTime>2016-03-22T09:07:49.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Xcode</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="Xcode" url="https://note.leodev.me/categories/iOS/Xcode/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://note.leodev.me/2016/01/20/iOS-tip-auto-scroll-search-bar/</loc>
     <lastmod>2018-01-16T07:16:23.752Z</lastmod>
     <data>
@@ -89,16 +169,16 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2016/03/22/iOS-Xcode-Plugins-Version-Support/</loc>
-    <lastmod>2018-01-16T07:16:23.752Z</lastmod>
+    <loc>https://note.leodev.me/2016/03/07/iOS-Swifty-methods/</loc>
+    <lastmod>2018-01-16T07:16:23.751Z</lastmod>
     <data>
         <display>
-        <title>【iOS】Xcode 插件过时怎么办？</title>
-        <pubTime>2016-03-22T09:07:49.000Z</pubTime>
+        <title>【iOS】用 Swift 来写 Swift 的方法</title>
+        <pubTime>2016-03-07T09:52:23.000Z</pubTime>
         
         <tag>iOS</tag>
          
-        <tag>Xcode</tag>
+        <tag>Swift</tag>
          
          
            
@@ -106,7 +186,7 @@
               <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
           
              
-              <breadCrumb title="Xcode" url="https://note.leodev.me/categories/iOS/Xcode/"/>
+              <breadCrumb title="Swift" url="https://note.leodev.me/categories/iOS/Swift/"/>
           
         </display>
     </data>
@@ -164,25 +244,33 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2016/03/07/iOS-Swifty-methods/</loc>
-    <lastmod>2018-01-16T07:16:23.751Z</lastmod>
+    <loc>https://note.leodev.me/2016/01/08/git-commonly-used-commands/</loc>
+    <lastmod>2018-01-16T07:16:23.750Z</lastmod>
     <data>
         <display>
-        <title>【iOS】用 Swift 来写 Swift 的方法</title>
-        <pubTime>2016-03-07T09:52:23.000Z</pubTime>
+        <title>Git 常用命令</title>
+        <pubTime>2016-01-08T08:55:20.000Z</pubTime>
         
         <tag>iOS</tag>
          
-        <tag>Swift</tag>
+        <tag>git</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Debian</tag>
          
          
            
              
-              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
+              <breadCrumb title="git" url="https://note.leodev.me/categories/git/"/>
           
              
-              <breadCrumb title="Swift" url="https://note.leodev.me/categories/iOS/Swift/"/>
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/git/iOS/"/>
           
+             
+              <breadCrumb title="Linux" url="https://note.leodev.me/categories/git/iOS/Linux/"/>
+          
+             
         </display>
     </data>
     </url>
@@ -244,39 +332,6 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2016/01/08/git-commonly-used-commands/</loc>
-    <lastmod>2018-01-16T07:16:23.750Z</lastmod>
-    <data>
-        <display>
-        <title>Git 常用命令</title>
-        <pubTime>2016-01-08T08:55:20.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>git</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>Debian</tag>
-         
-         
-           
-             
-              <breadCrumb title="git" url="https://note.leodev.me/categories/git/"/>
-          
-             
-              <breadCrumb title="iOS" url="https://note.leodev.me/categories/git/iOS/"/>
-          
-             
-              <breadCrumb title="Linux" url="https://note.leodev.me/categories/git/iOS/Linux/"/>
-          
-             
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://note.leodev.me/2015/12/21/%5BMac-Tip%5D-How-To-Name-The-Local-Downloads-Folder/</loc>
     <lastmod>2018-01-16T07:16:23.749Z</lastmod>
     <data>
@@ -327,31 +382,6 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2015/12/11/%5BiOS%5D-Development-Notes-1/</loc>
-    <lastmod>2018-01-16T07:16:23.749Z</lastmod>
-    <data>
-        <display>
-        <title>【iOS】开发笔记（一）</title>
-        <pubTime>2015-12-11T04:39:29.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
-          
-             
-              <breadCrumb title="笔记" url="https://note.leodev.me/categories/iOS/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://note.leodev.me/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
     <lastmod>2018-01-16T07:16:23.749Z</lastmod>
     <data>
@@ -377,67 +407,24 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2016/08/18/Universal-Links-Test/</loc>
-    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
+    <loc>https://note.leodev.me/2015/12/11/%5BiOS%5D-Development-Notes-1/</loc>
+    <lastmod>2018-01-16T07:16:23.749Z</lastmod>
     <data>
         <display>
-        <title>Universal Links Test</title>
-        <pubTime>2016-08-18T07:57:26.000Z</pubTime>
+        <title>【iOS】开发笔记（一）</title>
+        <pubTime>2015-12-11T04:39:29.000Z</pubTime>
         
+        <tag>iOS</tag>
          
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/</loc>
-    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
-    <data>
-        <display>
-        <title>【Mac】终端常见的 Vim 命令</title>
-        <pubTime>2016-02-22T02:28:52.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-        <tag>Vim</tag>
-         
-        <tag>Terminal</tag>
-         
-        <tag>Command</tag>
+        <tag>笔记</tag>
          
          
            
              
-              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
           
              
-              <breadCrumb title="Vim" url="https://note.leodev.me/categories/Mac/Vim/"/>
-          
-             
-              <breadCrumb title="Terminal" url="https://note.leodev.me/categories/Mac/Vim/Terminal/"/>
-          
-             
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://note.leodev.me/2016/03/11/Why-Coding/</loc>
-    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
-    <data>
-        <display>
-        <title>Why Coding?</title>
-        <pubTime>2016-03-11T10:22:58.000Z</pubTime>
-        
-        <tag>Time</tag>
-         
-         
-           
-             
-              <breadCrumb title="Time" url="https://note.leodev.me/categories/Time/"/>
+              <breadCrumb title="笔记" url="https://note.leodev.me/categories/iOS/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -454,9 +441,9 @@
         
         <tag>node.js</tag>
          
-        <tag>hexo</tag>
-         
         <tag>Mac</tag>
+         
+        <tag>hexo</tag>
          
          
            
@@ -500,6 +487,61 @@
 
     
   <url>
+    <loc>https://note.leodev.me/2016/03/11/Why-Coding/</loc>
+    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
+    <data>
+        <display>
+        <title>Why Coding?</title>
+        <pubTime>2016-03-11T10:22:58.000Z</pubTime>
+        
+        <tag>Time</tag>
+         
+         
+           
+             
+              <breadCrumb title="Time" url="https://note.leodev.me/categories/Time/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://note.leodev.me/2016/08/18/Universal-Links-Test/</loc>
+    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
+    <data>
+        <display>
+        <title>Universal Links Test</title>
+        <pubTime>2016-08-18T07:57:26.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
+    <lastmod>2018-01-16T07:16:23.747Z</lastmod>
+    <data>
+        <display>
+        <title>Hello Hexo</title>
+        <pubTime>2015-12-07T05:45:18.000Z</pubTime>
+        
+        <tag>Hello</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hello" url="https://note.leodev.me/categories/Hello/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://note.leodev.me/2016/09/01/Hexo-3-1-1-Staic-Blog-Build-Guide/</loc>
     <lastmod>2018-01-16T07:16:23.747Z</lastmod>
     <data>
@@ -509,9 +551,9 @@
         
         <tag>node.js</tag>
          
-        <tag>Mac</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>Mac</tag>
          
          
            
@@ -554,25 +596,6 @@
     </url>
 
     
-  <url>
-    <loc>https://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
-    <lastmod>2018-01-16T07:16:23.747Z</lastmod>
-    <data>
-        <display>
-        <title>Hello Hexo</title>
-        <pubTime>2015-12-07T05:45:18.000Z</pubTime>
-        
-        <tag>Hello</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hello" url="https://note.leodev.me/categories/Hello/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
   <url>
@@ -604,6 +627,5 @@
     </data>
     </url>
 
-    
     
 </urlset>
