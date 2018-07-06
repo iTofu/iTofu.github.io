@@ -72,6 +72,13 @@
   </url>
   
   <url>
+    <loc>https://note.leodev.me/2016/05/03/iOS-UITextView-Auto-Scroll/</loc>
+    
+    <lastmod>2018-04-11T03:29:36.638Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://note.leodev.me/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/</loc>
     
     <lastmod>2018-04-11T03:29:36.638Z</lastmod>
@@ -80,13 +87,6 @@
   
   <url>
     <loc>https://note.leodev.me/2016/03/22/iOS-Xcode-Plugins-Version-Support/</loc>
-    
-    <lastmod>2018-04-11T03:29:36.638Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://note.leodev.me/2016/05/03/iOS-UITextView-Auto-Scroll/</loc>
     
     <lastmod>2018-04-11T03:29:36.638Z</lastmod>
     
@@ -107,13 +107,6 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/</loc>
-    
-    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://note.leodev.me/2016/02/02/iOS-Auto-Build-From-SVN-Version/</loc>
     
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
@@ -121,7 +114,14 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
+    <loc>https://note.leodev.me/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/</loc>
+    
+    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
     
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
     
@@ -135,13 +135,6 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/</loc>
-    
-    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://note.leodev.me/2015/12/15/%5BiOS%5D-How-To-Setting-HTTP-Header-With-AFNetworking/</loc>
     
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
@@ -149,7 +142,14 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
+    <loc>https://note.leodev.me/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
+    
+    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/</loc>
     
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
     
