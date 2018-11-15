@@ -26,6 +26,7 @@
 
     
     
+    
   <url>
     <loc>https://note.leodev.me/2016/09/01/Hexo-3-1-1-Staic-Blog-Build-Guide/</loc>
     <lastmod>2018-04-11T03:29:36.680Z</lastmod>
@@ -36,9 +37,9 @@
         
         <tag>node.js</tag>
          
-        <tag>Mac</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>Mac</tag>
          
          
            
@@ -55,7 +56,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://note.leodev.me/2015/12/31/The-installation-and-usage-of-CocoaPods-and-FAQ/</loc>
@@ -108,6 +108,31 @@
 
     
   <url>
+    <loc>https://note.leodev.me/2014/08/20/%5BiOS%5D-Interview-Questions/</loc>
+    <lastmod>2018-04-11T03:29:36.640Z</lastmod>
+    <data>
+        <display>
+        <title>【iOS】面试题</title>
+        <pubTime>2014-08-20T01:29:30.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>面试</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
+          
+             
+              <breadCrumb title="面试" url="https://note.leodev.me/categories/iOS/%E9%9D%A2%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://note.leodev.me/2016/01/08/git-commonly-used-commands/</loc>
     <lastmod>2018-04-11T03:29:36.640Z</lastmod>
     <data>
@@ -141,50 +166,33 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2014/08/20/%5BiOS%5D-Interview-Questions/</loc>
-    <lastmod>2018-04-11T03:29:36.640Z</lastmod>
-    <data>
-        <display>
-        <title>【iOS】面试题</title>
-        <pubTime>2014-08-20T01:29:30.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>面试</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
-          
-             
-              <breadCrumb title="面试" url="https://note.leodev.me/categories/iOS/%E9%9D%A2%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://note.leodev.me/2016/01/20/iOS-tip-auto-scroll-search-bar/</loc>
+    <loc>https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/</loc>
     <lastmod>2018-04-11T03:29:36.638Z</lastmod>
     <data>
         <display>
-        <title>【iOS】开发技巧——自动滚动的 SearchBar</title>
-        <pubTime>2016-01-20T05:37:40.000Z</pubTime>
+        <title>【Mac】终端常见的 Vim 命令</title>
+        <pubTime>2016-02-22T02:28:52.000Z</pubTime>
         
-        <tag>iOS</tag>
+        <tag>Mac</tag>
          
-        <tag>Tip</tag>
+        <tag>Vim</tag>
+         
+        <tag>Terminal</tag>
+         
+        <tag>Command</tag>
          
          
            
              
-              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
+              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
           
              
-              <breadCrumb title="Tip" url="https://note.leodev.me/categories/iOS/Tip/"/>
+              <breadCrumb title="Vim" url="https://note.leodev.me/categories/Mac/Vim/"/>
           
+             
+              <breadCrumb title="Terminal" url="https://note.leodev.me/categories/Mac/Vim/Terminal/"/>
+          
+             
         </display>
     </data>
     </url>
@@ -235,39 +243,6 @@
              
               <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/</loc>
-    <lastmod>2018-04-11T03:29:36.638Z</lastmod>
-    <data>
-        <display>
-        <title>【Mac】终端常见的 Vim 命令</title>
-        <pubTime>2016-02-22T02:28:52.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-        <tag>Vim</tag>
-         
-        <tag>Terminal</tag>
-         
-        <tag>Command</tag>
-         
-         
-           
-             
-              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
-          
-             
-              <breadCrumb title="Vim" url="https://note.leodev.me/categories/Mac/Vim/"/>
-          
-             
-              <breadCrumb title="Terminal" url="https://note.leodev.me/categories/Mac/Vim/Terminal/"/>
-          
-             
         </display>
     </data>
     </url>
@@ -329,24 +304,54 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2015/12/21/%5BMac-Tip%5D-How-To-Name-The-Local-Downloads-Folder/</loc>
-    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
+    <loc>https://note.leodev.me/2016/01/20/iOS-tip-auto-scroll-search-bar/</loc>
+    <lastmod>2018-04-11T03:29:36.638Z</lastmod>
     <data>
         <display>
-        <title>【Mac 技巧】怎么样把 "Downloads" 文件夹命名为 "下载"？</title>
-        <pubTime>2015-12-21T13:19:23.000Z</pubTime>
+        <title>【iOS】开发技巧——自动滚动的 SearchBar</title>
+        <pubTime>2016-01-20T05:37:40.000Z</pubTime>
         
-        <tag>Mac</tag>
+        <tag>iOS</tag>
          
-        <tag>技巧</tag>
+        <tag>Tip</tag>
          
          
            
              
-              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/iOS/"/>
           
              
-              <breadCrumb title="技巧" url="https://note.leodev.me/categories/Mac/%E6%8A%80%E5%B7%A7/"/>
+              <breadCrumb title="Tip" url="https://note.leodev.me/categories/iOS/Tip/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/</loc>
+    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
+    <data>
+        <display>
+        <title>【CocoaPods】细说 pod trunk</title>
+        <pubTime>2016-04-05T08:04:22.000Z</pubTime>
+        
+        <tag>CocoaPods</tag>
+         
+        <tag>Pod</tag>
+         
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CocoaPods" url="https://note.leodev.me/categories/CocoaPods/"/>
+          
+             
+              <breadCrumb title="Pod" url="https://note.leodev.me/categories/CocoaPods/Pod/"/>
+          
+             
+              <breadCrumb title="iOS" url="https://note.leodev.me/categories/CocoaPods/Pod/iOS/"/>
           
         </display>
     </data>
@@ -414,31 +419,6 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
-    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
-    <data>
-        <display>
-        <title>【Mac 技巧】开启适用于 Force Touch 触控板的“三指拖移”</title>
-        <pubTime>2015-12-14T08:10:10.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-        <tag>技巧</tag>
-         
-         
-           
-             
-              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
-          
-             
-              <breadCrumb title="技巧" url="https://note.leodev.me/categories/Mac/%E6%8A%80%E5%B7%A7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://note.leodev.me/2016/01/04/HTML-JS-apple-itunes-app/</loc>
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
     <data>
@@ -464,29 +444,19 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2016/04/05/CocoaPods-API-Elaborate-pod-trunk/</loc>
+    <loc>https://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
     <data>
         <display>
-        <title>【CocoaPods】细说 pod trunk</title>
-        <pubTime>2016-04-05T08:04:22.000Z</pubTime>
+        <title>Hello Hexo</title>
+        <pubTime>2015-12-07T05:45:18.000Z</pubTime>
         
-        <tag>CocoaPods</tag>
-         
-        <tag>Pod</tag>
-         
-        <tag>iOS</tag>
+        <tag>Hello</tag>
          
          
            
              
-              <breadCrumb title="CocoaPods" url="https://note.leodev.me/categories/CocoaPods/"/>
-          
-             
-              <breadCrumb title="Pod" url="https://note.leodev.me/categories/CocoaPods/Pod/"/>
-          
-             
-              <breadCrumb title="iOS" url="https://note.leodev.me/categories/CocoaPods/Pod/iOS/"/>
+              <breadCrumb title="Hello" url="https://note.leodev.me/categories/Hello/"/>
           
         </display>
     </data>
@@ -519,19 +489,49 @@
 
     
   <url>
-    <loc>https://note.leodev.me/2015/12/07/Hello-Hexo/</loc>
+    <loc>https://note.leodev.me/2015/12/21/%5BMac-Tip%5D-How-To-Name-The-Local-Downloads-Folder/</loc>
     <lastmod>2018-04-11T03:29:36.637Z</lastmod>
     <data>
         <display>
-        <title>Hello Hexo</title>
-        <pubTime>2015-12-07T05:45:18.000Z</pubTime>
+        <title>【Mac 技巧】怎么样把 "Downloads" 文件夹命名为 "下载"？</title>
+        <pubTime>2015-12-21T13:19:23.000Z</pubTime>
         
-        <tag>Hello</tag>
+        <tag>Mac</tag>
+         
+        <tag>技巧</tag>
          
          
            
              
-              <breadCrumb title="Hello" url="https://note.leodev.me/categories/Hello/"/>
+              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="技巧" url="https://note.leodev.me/categories/Mac/%E6%8A%80%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://note.leodev.me/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
+    <lastmod>2018-04-11T03:29:36.637Z</lastmod>
+    <data>
+        <display>
+        <title>【Mac 技巧】开启适用于 Force Touch 触控板的“三指拖移”</title>
+        <pubTime>2015-12-14T08:10:10.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>技巧</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mac" url="https://note.leodev.me/categories/Mac/"/>
+          
+             
+              <breadCrumb title="技巧" url="https://note.leodev.me/categories/Mac/%E6%8A%80%E5%B7%A7/"/>
           
         </display>
     </data>
@@ -592,6 +592,21 @@
     
     
   <url>
+    <loc>https://note.leodev.me/2016/08/18/Universal-Links-Test/</loc>
+    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
+    <data>
+        <display>
+        <title>Universal Links Test</title>
+        <pubTime>2016-08-18T07:57:26.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://note.leodev.me/2016/03/11/Why-Coding/</loc>
     <lastmod>2018-01-16T07:16:23.748Z</lastmod>
     <data>
@@ -606,21 +621,6 @@
              
               <breadCrumb title="Time" url="https://note.leodev.me/categories/Time/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://note.leodev.me/2016/08/18/Universal-Links-Test/</loc>
-    <lastmod>2018-01-16T07:16:23.748Z</lastmod>
-    <data>
-        <display>
-        <title>Universal Links Test</title>
-        <pubTime>2016-08-18T07:57:26.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
