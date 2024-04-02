@@ -1,38 +1,480 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="zILgsgi5ER8p5_XVo4E0YCH4sILBEzNS-vkKyE8C39E">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"note.leodev.me","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前段时间在写 LCActionSheet 这个库的时候，收到一个老兄 weiwei1035 提到的一个 UIWindow 相关的 Issue，说：当 statusBarStyle 为 UIStatusBarStyleLightContent 时，背景不会遮挡 statusBar。这位老兄还很热情地写了解决方案，并 pr 给了我，我简单验证过就愉快的合并了。 我就喜欢这种提了问题自己想解决方案最后还">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【iOS】系统是怎么实现 UIAlertView 的？">
+<meta property="og:url" content="https://note.leodev.me/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/index.html">
+<meta property="og:site_name" content="LEO&#39;S NOTE">
+<meta property="og:description" content="前段时间在写 LCActionSheet 这个库的时候，收到一个老兄 weiwei1035 提到的一个 UIWindow 相关的 Issue，说：当 statusBarStyle 为 UIStatusBarStyleLightContent 时，背景不会遮挡 statusBar。这位老兄还很热情地写了解决方案，并 pr 给了我，我简单验证过就愉快的合并了。 我就喜欢这种提了问题自己想解决方案最后还">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdnqiniu.leox.top/donate.png">
+<meta property="article:published_time" content="2015-12-29T08:15:11.000Z">
+<meta property="article:modified_time" content="2024-04-02T07:10:59.130Z">
+<meta property="article:author" content="Leo">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdnqiniu.leox.top/donate.png">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="canonical" href="https://note.leodev.me/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/">
 
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://note.leodev.me/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/","path":"2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/","title":"【iOS】系统是怎么实现 UIAlertView 的？"}</script>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【iOS】系统是怎么实现 UIAlertView 的？ | LEO'S NOTE</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83213218-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-83213218-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?ca0e9ed35135eb5508e91e7fad4ba77c"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="LEO'S NOTE" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LEO'S NOTE</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">心有猛虎 | 细嗅蔷薇</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-lol"><a href="https://leodev.me/lol" rel="section" target="_blank">lol</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%A3%80%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">代码检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%98%E8%AF%AF"><span class="nav-number">5.</span> <span class="nav-text">勘误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%EF%BC%9ADemo-%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">附：Demo 参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E4%B8%8E%E6%8D%90%E8%B5%A0"><span class="nav-number">7.</span> <span class="nav-text">联系与捐赠</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Leo</p>
+  <div class="site-description" itemprop="description">Stay Hungry.<br>Stay Foolish.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://leodev.me/" title="Cover → https:&#x2F;&#x2F;LeoDev.me" rel="noopener me" target="_blank">Cover</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/iTofu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iTofu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/coderleo" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;coderleo" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/leodaxia" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;leodaxia" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cdnqiniu.leox.top/resume.pdf" title="CV → https:&#x2F;&#x2F;cdnqiniu.leox.top&#x2F;resume.pdf" rel="noopener me" target="_blank">CV</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/honor" title="Honor → &#x2F;honor" rel="noopener me">Honor</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/WishList" title="Wish → &#x2F;WishList" rel="noopener me">Wish</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://note.leodev.me/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Leo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEO'S NOTE">
+      <meta itemprop="description" content="Stay Hungry.<br>Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【iOS】系统是怎么实现 UIAlertView 的？ | LEO'S NOTE">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【iOS】系统是怎么实现 UIAlertView 的？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-12-29 16:15:11" itemprop="dateCreated datePublished" datetime="2015-12-29T16:15:11+08:00">2015-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-02 15:10:59" itemprop="dateModified" datetime="2024-04-02T15:10:59+08:00">2024-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/29/iOS-How-to-implement-the-UIAlertView-of-the-system/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>前段时间在写 <a target="_blank" rel="noopener" href="https://github.com/iTofu/LCActionSheet">LCActionSheet</a> 这个库的时候，收到一个老兄 <a target="_blank" rel="noopener" href="https://github.com/weiwei1035">weiwei1035</a> 提到的一个 UIWindow 相关的 <a target="_blank" rel="noopener" href="https://github.com/iTofu/LCActionSheet/issues/1">Issue</a>，说：当 <code>statusBarStyle</code> 为 <code>UIStatusBarStyleLightContent</code> 时，背景不会遮挡 <code>statusBar</code>。这位老兄还很热情地写了解决方案，并 <a target="_blank" rel="noopener" href="https://github.com/iTofu/LCActionSheet/pull/2">pr</a> 给了我，我简单验证过就愉快的合并了。</p>
+<p>我就喜欢这种提了问题自己想解决方案最后还能让我少写些代码的人，再次表扬。</p>
+<blockquote class="blockquote-center">但，凡事要知其然，也要知其所以然。</blockquote>
+
+<p>作为一名具有高度责（hao）任（qi）感（xin）的 Coder，我会把这事就这么简单放过吗？当然不会！后来我仔细想了想这个 Issue，思考了这个 window 的必要性：就为了一个 UI 效果搞这么复杂真的有必要吗？</p>
+<span id="more"></span>
+
+<p>开始我其实也觉得没必要。但是我觉得吧，我说了不算，系统说了才算。毕竟这些代码都是运行在 iOS 系统上，照系统来肯定不会错。那怎么办呢？那就来研究研究 <code>UIAlertView</code> 的实现好了。</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>探索系统 <code>UIAlertView</code> 的实现，重点：</p>
+<ol>
+<li>alloc init 的时候干了些什么？</li>
+<li><code>- (void)show;</code> 的时候干了些什么？</li>
+<li>当 alertView dismiss 的时候又干了些什么？</li>
+</ol>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>做任何事，最好是先想好思路。思路完善了，做起事情来才能游刃有余。</p>
+<p>首先，我觉得系统 <code>UIAlertView</code> 的实现过程是这样的：</p>
+<ol>
+<li>当 <code>UIAlertView</code> alloc init 的时候，只是创建了一个 <code>UIAlertView</code> 实例（如：<code>myAlertView</code>），它并没有被添加到父 view 上。</li>
+<li>当调用 <code>[myAlertView show]</code> 的时候，系统创建一个新的 <code>UIWindow</code> 实例（如：<code>alertWindow</code>），设为当前 application 的 keyWindow（如：<code>originKeyWindow</code>），并保存原有的 keyWindow 指针，然后把 <code>alertView</code> 添加到这个新建的 <code>alertWindow</code> 上，此时 <code>alertView</code> 就显示在设备屏幕上了。（动画过程略）</li>
+<li>当 <code>alertView</code> 需要消失的时候，系统先把 <code>alertView</code> 从 <code>alertWindow</code> 上移除：<code>[alertView removeFromSuperView]</code>，然后再设置 application 的 keyWindow 为之前保存的 <code>originKeyWindow</code>，再设置 <code>alertWindow.hide = YES</code> 来销毁 <code>alertWindow</code>。</li>
+</ol>
+<p>Over！</p>
+<p>那么我猜想的到底对不对呢？让我们用代码检验下就知道了。<br>（其实我当时根本就没检验因为我就是这么自信哈哈哈）</p>
+<h2 id="代码检验"><a href="#代码检验" class="headerlink" title="代码检验"></a>代码检验</h2><p>1、首先新建一个项目，就叫 <code>UIAlertViewDemo</code> 好了。<br>2、打开 <code>ViewController.m</code>，编辑代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#import <span class="string">&quot;ViewController.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> KEY_WINDOW  [UIApplication sharedApplication].keyWindow</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">UIAlertViewDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)viewDidLoad &#123;</span><br><span class="line"></span><br><span class="line">    [<span class="variable language_">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertView</span> *alertView = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@&quot;Title&quot;</span></span><br><span class="line">                                                        message:<span class="string">@&quot;message&quot;</span></span><br><span class="line">                                                       delegate:<span class="keyword">self</span></span><br><span class="line">                                              cancelButtonTitle:<span class="string">@&quot;ok&quot;</span></span><br><span class="line">                                              otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;origin key window: %p&quot;</span>, KEY_WINDOW);</span><br><span class="line"></span><br><span class="line">    [alertView show];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> mark - UIAlertView Delegate</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  点 alertView 上面的 btn 时调用，alertView 还在</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="type">void</span>)alertView:(<span class="built_in">UIAlertView</span> *)alertView clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;when clicked key window: %p&quot;</span>, KEY_WINDOW);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  alertView 将要消失时调用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="type">void</span>)alertView:(<span class="built_in">UIAlertView</span> *)alertView willDismissWithButtonIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;alert view will dismiss key window: %p&quot;</span>, KEY_WINDOW);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  alertView 已经消失时调用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="type">void</span>)alertView:(<span class="built_in">UIAlertView</span> *)alertView didDismissWithButtonIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;alert view did dismiss key window: %p&quot;</span>, KEY_WINDOW);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>**<br>3、Run，点击 alertView 的 ok 按钮，看看输出结果：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">23</span>:<span class="number">02.397</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4057</span>:<span class="number">484684</span>] origin key window: <span class="number">0x0</span></span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">23</span>:<span class="number">04.564</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4057</span>:<span class="number">484684</span>] when clicked key window: <span class="number">0x7faa12840080</span></span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">23</span>:<span class="number">04.564</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4057</span>:<span class="number">484684</span>] alert view will dismiss key window: <span class="number">0x7faa12840080</span></span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">23</span>:<span class="number">04.978</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4057</span>:<span class="number">484684</span>] alert view did dismiss key window: <span class="number">0x7faa1151a720</span></span><br></pre></td></tr></table></figure>
+
+<p>咦，后面的打印确实比较符合猜想，但是这个开始的 <code>origin key window: 0x0</code> 是什么鬼？！噢，差点忘了，当代码走到这里的时候，还没有 keyWindow。</p>
+<p>4、那么我们这么改一下：</p>
+<ol>
+<li>去项目的 General 中，删除 Main Interface 的值（之前值为 Main）</li>
+<li>去 <code>AppDelegate.m</code> 中，修改如下代码：</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.window.rootViewController = [[ViewController alloc] init];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，当我们创建这个 <code>ViewController</code> 的实例的时候，application 的 keyWindow 就是存在的了。</p>
+<p>5、然后我们再重复第 3 步：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">38</span>:<span class="number">08.024</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4227</span>:<span class="number">502055</span>] origin key window: <span class="number">0x7ff742c2b910</span></span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">38</span>:<span class="number">09.543</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4227</span>:<span class="number">502055</span>] when clicked key window: <span class="number">0x7ff74540a6f0</span></span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">38</span>:<span class="number">09.543</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4227</span>:<span class="number">502055</span>] alert view will dismiss key window: <span class="number">0x7ff74540a6f0</span></span><br><span class="line"><span class="number">2015</span><span class="number">-12</span><span class="number">-29</span> <span class="number">17</span>:<span class="number">38</span>:<span class="number">09.956</span> <span class="built_in">UIAlertViewDemo</span>[<span class="number">4227</span>:<span class="number">502055</span>] alert view did dismiss key window: <span class="number">0x7ff742c2b910</span></span><br></pre></td></tr></table></figure>
+
+<p>通过对比内存地址，我们可以得出：</p>
+<ol>
+<li>UIAlertView 实例在 show 之前，并没有添加到父 view 上。</li>
+<li>只有当调用 <code>- (void)show;</code> 方法的时候，系统才会新建一个 UIWindow 实例并把 alertView 实例添加上去，并把这个新建的 window 设为 application 的 keyWindow，并保存 originKeyWindow。</li>
+<li>当 alertView 实例从屏幕上消失时，系统会依次销毁 alertView 和新建的 window，然后把之前保存的 originKeyWindow 重新设为 application 的 keyWindow。</li>
+</ol>
+<p>嗯，验证通过。我真是个天才哈哈哈。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我们平时做开发呢，要多思考，多总结，不要一味地埋头苦敲。</p>
+<p>iOS SDK 为我们封装了很多属性和方法，我们在调用这些属性和方法的时候，不要只图方便，也要多思考系统方法的实现。</p>
+<p>死记知识点这种做法太傻，你也记不住，<strong>在理解中学习才是最好的成长方式。</strong></p>
+<h2 id="勘误"><a href="#勘误" class="headerlink" title="勘误"></a>勘误</h2><p>之前对该问题探讨的结论如上，偶然一回首，发现了当时的一些不正确的认识，现勘误如下（主要是从生命周期的角度来重新认识和学习）：</p>
+<p>首先，UIWindow 实例如果不被持有，就会被释放。当然任何实例都应该是这样。<br>当 alertView show 的时候，新的 window 被初始化并被设为 UIApplication 单例的 keyWindow，原有的开发者在 AppDelegate 单例中设置的 window 并没有被释放并不是因为上文所认为的 <code>并保存 originKeyWindow</code>，而是因为该 window 是 AppDelegate 单例的全局变量，被它持有，所有必然不会被释放掉。<br>当 alertView hide 完成，原有的开发者在 AppDelegate 单例中设置的 window 会被重新设置为 UIApplication 单例的 keyWindow，我们可以知道此时该 window 被 AppDelegate 单例和 UIApplication 单例所共同持有，这是没问题的。而 alertView 所在的 window 因为不被 UIApplication 单例所持有，失去了 keyWindow 的地位，同时它也不再被任何对象所持有，所以会被直接释放。</p>
+<blockquote>
+<p>子曰：“温故而知新，可以为师矣。”</p>
+</blockquote>
+<h2 id="附：Demo-参考"><a href="#附：Demo-参考" class="headerlink" title="附：Demo 参考"></a>附：Demo 参考</h2><p><a target="_blank" rel="noopener" href="https://github.com/iTofu/UIAlertViewDemo">https://github.com/iTofu/UIAlertViewDemo</a></p>
+<p>另附上完整的开源框架：<a target="_blank" rel="noopener" href="https://github.com/iTofu/LCActionSheet">LCActionSheet</a></p>
+<h2 id="联系与捐赠"><a href="#联系与捐赠" class="headerlink" title="联系与捐赠"></a>联系与捐赠</h2><ul>
+<li><p>Mail: <code>echo bGVvZGF4aWFAZ21haWwuY29tCg== | base64 -D</code></p>
+</li>
+<li><p>GitHub:	<a target="_blank" rel="noopener" href="https://github.com/iTofu">iTofu</a></p>
+</li>
+<li><p>如果你想对我的开发或是开源项目进行支持捐助，请扫描下方二维码，谢谢！👇</p>
+<p><img src="https://cdnqiniu.leox.top/donate.png" alt="LEO"></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/reward_wechatpay.png" alt="Leo 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/reward_alipay.png" alt="Leo 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/12/21/%5BMac-Tip%5D-How-To-Name-The-Local-Downloads-Folder/" rel="prev" title="【Mac 技巧】怎么样把 "Downloads" 文件夹命名为 "下载"？">
+                  <i class="fa fa-angle-left"></i> 【Mac 技巧】怎么样把 "Downloads" 文件夹命名为 "下载"？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/12/30/The-Installation-Usage-And-QA-of-Hexo-on-Mac/" rel="next" title="Mac 上 Hexo 的安装、使用和常见问题">
+                  Mac 上 Hexo 的安装、使用和常见问题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Leo</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.js" integrity="sha256-+2+qOqR8CKoHh/AsVR9k2qaDBKWjYNC2nozhYmv5j9k=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"leodev","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

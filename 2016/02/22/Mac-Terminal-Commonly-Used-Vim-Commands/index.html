@@ -1,38 +1,546 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="zILgsgi5ER8p5_XVo4E0YCH4sILBEzNS-vkKyE8C39E">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"note.leodev.me","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Mac 是一款开发利器，对开发者是相当友好的。比如系统自带终端（Terminal）对 vim 命令的支持，就大幅提升了日常开发的便捷度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Mac】终端常见的 Vim 命令">
+<meta property="og:url" content="https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/index.html">
+<meta property="og:site_name" content="LEO&#39;S NOTE">
+<meta property="og:description" content="Mac 是一款开发利器，对开发者是相当友好的。比如系统自带终端（Terminal）对 vim 命令的支持，就大幅提升了日常开发的便捷度。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oi5xk258d.qnssl.com/macbook03.png">
+<meta property="og:image" content="https://oi5xk258d.qnssl.com/macbook03.png">
+<meta property="og:image" content="https://cdnqiniu.leox.top/donate.png">
+<meta property="article:published_time" content="2016-02-22T02:28:52.000Z">
+<meta property="article:modified_time" content="2024-04-02T07:10:59.127Z">
+<meta property="article:author" content="Leo">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="Terminal">
+<meta property="article:tag" content="Command">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oi5xk258d.qnssl.com/macbook03.png">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="canonical" href="https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/">
 
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/","path":"2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/","title":"【Mac】终端常见的 Vim 命令"}</script>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【Mac】终端常见的 Vim 命令 | LEO'S NOTE</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83213218-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-83213218-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?ca0e9ed35135eb5508e91e7fad4ba77c"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="LEO'S NOTE" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LEO'S NOTE</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">心有猛虎 | 细嗅蔷薇</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-lol"><a href="https://leodev.me/lol" rel="section" target="_blank">lol</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">一、常见命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">2.</span> <span class="nav-text">二、小技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E4%B8%8E%E6%94%AF%E6%8C%81"><span class="nav-number">3.</span> <span class="nav-text">联系与支持</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Leo</p>
+  <div class="site-description" itemprop="description">Stay Hungry.<br>Stay Foolish.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://leodev.me/" title="Cover → https:&#x2F;&#x2F;LeoDev.me" rel="noopener me" target="_blank">Cover</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/iTofu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iTofu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/coderleo" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;coderleo" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/leodaxia" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;leodaxia" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cdnqiniu.leox.top/resume.pdf" title="CV → https:&#x2F;&#x2F;cdnqiniu.leox.top&#x2F;resume.pdf" rel="noopener me" target="_blank">CV</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/honor" title="Honor → &#x2F;honor" rel="noopener me">Honor</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/WishList" title="Wish → &#x2F;WishList" rel="noopener me">Wish</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://note.leodev.me/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Leo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEO'S NOTE">
+      <meta itemprop="description" content="Stay Hungry.<br>Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【Mac】终端常见的 Vim 命令 | LEO'S NOTE">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Mac】终端常见的 Vim 命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-02-22 10:28:52" itemprop="dateCreated datePublished" datetime="2016-02-22T10:28:52+08:00">2016-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-02 15:10:59" itemprop="dateModified" datetime="2024-04-02T15:10:59+08:00">2024-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mac/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mac/Vim/Terminal/" itemprop="url" rel="index"><span itemprop="name">Terminal</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mac/Vim/Terminal/Command/" itemprop="url" rel="index"><span itemprop="name">Command</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- <img src="https://oi5xk258d.qnssl.com/macbook03.png" class="full-image" /> -->
+
+<p><img src="https://oi5xk258d.qnssl.com/macbook03.png" alt="macbook"></p>
+<p>Mac 是一款开发利器，对开发者是相当友好的。<br>比如系统自带终端（Terminal）对 vim 命令的支持，就大幅提升了日常开发的便捷度。</p>
+<span id="more"></span>
+
+<h2 id="一、常见命令"><a href="#一、常见命令" class="headerlink" title="一、常见命令"></a>一、常见命令</h2><ol>
+<li><code>pwd</code><br>  显示当前目录</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>pwd</span><br><span class="line">/<span class="title class_">Users</span>/<span class="title class_">Leo</span></span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>显示文件列表命令：</p>
+</li>
+<li><p><code>ls</code><br>显示当前目录下的所有文件</p>
+</li>
+</ol>
+<pre><code>示例：
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>ls</span><br><span class="line"><span class="title class_">Applications</span>	<span class="title class_">Downloads</span>	<span class="title class_">Music</span>		gitosis-admin</span><br><span class="line"><span class="title class_">Desktop</span>		<span class="title class_">Library</span>		<span class="title class_">Pictures</span>	node_modules</span><br><span class="line"><span class="title class_">Documents</span>	<span class="title class_">Movies</span>		<span class="title class_">Public</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="2">
+<li><code>ls -al</code><br>详细显示当前目录下的所有文件</li>
+</ol>
+<pre><code>示例：
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>ls -al</span><br><span class="line">total <span class="number">144</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">drwx------+   <span class="number">7</span> <span class="title class_">Leo</span>   staff    <span class="number">238</span>  <span class="number">2</span> <span class="number">19</span> <span class="number">19</span><span class="symbol">:</span><span class="number">00</span> <span class="title class_">Pictures</span></span><br><span class="line">drwxr-xr-x+   <span class="number">6</span> <span class="title class_">Leo</span>   staff    <span class="number">204</span> <span class="number">12</span> <span class="number">19</span> <span class="number">17</span><span class="symbol">:</span><span class="number">58</span> <span class="title class_">Public</span></span><br><span class="line">drwxr-xr-x    <span class="number">5</span> <span class="title class_">Leo</span>   staff    <span class="number">170</span>  <span class="number">1</span>  <span class="number">8</span> <span class="number">13</span><span class="symbol">:</span><span class="number">02</span> gitosis-admin</span><br><span class="line">drwxr-xr-x    <span class="number">2</span> <span class="title class_">Leo</span>   staff     <span class="number">68</span> <span class="number">12</span> <span class="number">30</span> <span class="number">18</span><span class="symbol">:</span><span class="number">04</span> node_modules</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="3">
+<li><code>ls -G</code><br>黑&#x2F;白色的表示普通文件<br>蓝色的表示文件夹或者目录<br>红色表示可执行程序</li>
+</ol>
+<pre><code>示例：
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>ls -G</span><br><span class="line"><span class="title class_">Applications</span>  <span class="title class_">Downloads</span>     <span class="title class_">Music</span>         gitosis-admin</span><br><span class="line"><span class="title class_">Desktop</span>       <span class="title class_">Library</span>       <span class="title class_">Pictures</span>      node_modules</span><br><span class="line"><span class="title class_">Documents</span>     <span class="title class_">Movies</span>        <span class="title class_">Public</span></span><br></pre></td></tr></table></figure>
+不截图了哈，在终端中是有颜色的。
+</code></pre>
+<ol start="4">
+<li><p>你可以结合多个参数使用 ls 命令，如 <code>ls -G -al</code> 会详细显示所有文件并颜色处理。</p>
+</li>
+<li><p><code>cd</code><br>  进入或者退出某个目录(文件夹)</p>
+</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>cd <span class="title class_">Library</span>/  <span class="comment"># 进入 Library 目录</span></span><br><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:Library</span> <span class="title class_">Leo</span><span class="variable">$</span></span><br><span class="line"><span class="variable"></span></span><br><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:Library</span> <span class="title class_">Leo</span><span class="variable">$ </span>cd ..  <span class="comment"># 退出 Library 目录 / 返回父目录</span></span><br><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span>$</span><br></pre></td></tr></table></figure></p>
+<ol start="4">
+<li><code>mkdir</code><br>  创建文件夹</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="title class_">MyProject</span></span><br></pre></td></tr></table></figure></p>
+<ol start="5">
+<li><code>touch</code><br>  创建新文件</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch <span class="number">1</span>.txt</span><br></pre></td></tr></table></figure></p>
+<ol start="6">
+<li><code>cp</code><br>  拷贝</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把 1.txt 拷贝到 MyProject 目录</span></span><br><span class="line">cp <span class="number">1</span>.txt  <span class="title class_">MyProject</span>           <span class="comment"># 相对路径，拷贝到当前目录下的 MyProject 目录</span></span><br><span class="line">cp <span class="number">1</span>.txt /<span class="title class_">Users</span>/<span class="title class_">Leo</span>/<span class="title class_">MyProject</span> <span class="comment"># 绝对路径</span></span><br></pre></td></tr></table></figure></p>
+<ol start="7">
+<li><code>rm</code><br>  删除命令</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm <span class="number">1</span>.txt          <span class="comment"># 删除文件 1.txt</span></span><br><span class="line">rm -rf <span class="title class_">MyProject</span>  <span class="comment"># 删除目录 MyProject</span></span><br></pre></td></tr></table></figure></p>
+<ol start="8">
+<li><code>mv</code><br>  改名和移动</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv <span class="number">1</span>.txt <span class="number">2</span>.txt      <span class="comment"># 改名，把 1.txt 重命名为 2.txt</span></span><br><span class="line">mv <span class="number">1</span>.txt <span class="title class_">MyProject</span>  <span class="comment"># 移动，把 1.txt 移动到当前目录下的 MyProject 目录</span></span><br></pre></td></tr></table></figure></p>
+<ol start="9">
+<li>网络命令：</li>
+<li><code>ifconfig</code><br>查看当前网络配置，Windows 系统下是 <code>ipconfig</code></li>
+</ol>
+<pre><code>示例：
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>ifconfig</span><br><span class="line"><span class="symbol">lo0:</span> flags=<span class="number">8049</span>&lt;<span class="variable constant_">UP</span>,<span class="variable constant_">LOOPBACK</span>,<span class="variable constant_">RUNNING</span>,<span class="variable constant_">MULTICAST</span>&gt; mtu <span class="number">16384</span></span><br><span class="line">	options=<span class="number">3</span>&lt;<span class="variable constant_">RXCSUM</span>,<span class="variable constant_">TXCSUM</span>&gt;</span><br><span class="line">	inet6 <span class="symbol">:</span><span class="symbol">:</span><span class="number">1</span> prefixlen <span class="number">128</span></span><br><span class="line">	inet <span class="number">127.0</span>.<span class="number">0.1</span> netmask <span class="number">0xff000000</span></span><br><span class="line">	inet6 fe80::<span class="number">1</span>%lo0 prefixlen <span class="number">64</span> scopeid <span class="number">0x1</span></span><br><span class="line">	nd6 options=<span class="number">1</span>&lt;<span class="variable constant_">PERFORMNUD</span>&gt;</span><br><span class="line"><span class="symbol">gif0:</span> flags=<span class="number">8010</span>&lt;<span class="variable constant_">POINTOPOINT</span>,<span class="variable constant_">MULTICAST</span>&gt; mtu <span class="number">1280</span></span><br><span class="line"><span class="symbol">stf0:</span> flags=<span class="number">0</span>&lt;&gt; mtu <span class="number">1280</span></span><br><span class="line"><span class="symbol">en4:</span> flags=<span class="number">8863</span>&lt;<span class="variable constant_">UP</span>,<span class="variable constant_">BROADCAST</span>,<span class="variable constant_">SMART</span>,<span class="variable constant_">RUNNING</span>,<span class="variable constant_">SIMPLEX</span>,<span class="variable constant_">MULTICAST</span>&gt; mtu <span class="number">1500</span></span><br><span class="line">	options=<span class="number">4</span>&lt;<span class="variable constant_">VLAN_MTU</span>&gt;</span><br><span class="line">	ether <span class="number">00</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span>6<span class="symbol">a:</span>1c</span><br><span class="line">	inet6 fe80::<span class="number">200</span><span class="symbol">:ff</span><span class="symbol">:fe00</span><span class="symbol">:</span>6a1c%en4 prefixlen <span class="number">64</span> scopeid <span class="number">0x4</span></span><br><span class="line">	inet <span class="number">192.168</span>.<span class="number">4.100</span> netmask <span class="number">0xffffff00</span> broadcast <span class="number">192.168</span>.<span class="number">4.255</span></span><br><span class="line">	nd6 options=<span class="number">1</span>&lt;<span class="variable constant_">PERFORMNUD</span>&gt;</span><br><span class="line">	<span class="symbol">media:</span> autoselect (100baseTX &lt;full-duplex,flow-control&gt;)</span><br><span class="line">	<span class="symbol">status:</span> active</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="symbol">bridge0:</span> flags=<span class="number">8863</span>&lt;<span class="variable constant_">UP</span>,<span class="variable constant_">BROADCAST</span>,<span class="variable constant_">SMART</span>,<span class="variable constant_">RUNNING</span>,<span class="variable constant_">SIMPLEX</span>,<span class="variable constant_">MULTICAST</span>&gt; mtu <span class="number">1500</span></span><br><span class="line">	options=<span class="number">63</span>&lt;<span class="variable constant_">RXCSUM</span>,<span class="variable constant_">TXCSUM</span>,<span class="variable constant_">TSO4</span>,<span class="variable constant_">TSO6</span>&gt;</span><br><span class="line">	ether <span class="number">02</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:ba</span><span class="symbol">:</span><span class="number">00</span></span><br><span class="line">	<span class="title class_">Configuration</span>:</span><br><span class="line">		id <span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span> priority <span class="number">0</span> hellotime <span class="number">0</span> fwddelay <span class="number">0</span></span><br><span class="line">		maxage <span class="number">0</span> holdcnt <span class="number">0</span> proto stp maxaddr <span class="number">100</span> timeout <span class="number">1200</span></span><br><span class="line">		root id <span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span> priority <span class="number">0</span> ifcost <span class="number">0</span> port <span class="number">0</span></span><br><span class="line">		ipfilter disabled flags <span class="number">0x2</span></span><br><span class="line">	<span class="symbol">member:</span> en1 flags=<span class="number">3</span>&lt;<span class="variable constant_">LEARNING</span>,<span class="variable constant_">DISCOVER</span>&gt;</span><br><span class="line">	        ifmaxaddr <span class="number">0</span> port <span class="number">6</span> priority <span class="number">0</span> path cost <span class="number">0</span></span><br><span class="line">	<span class="symbol">member:</span> en2 flags=<span class="number">3</span>&lt;<span class="variable constant_">LEARNING</span>,<span class="variable constant_">DISCOVER</span>&gt;</span><br><span class="line">	        ifmaxaddr <span class="number">0</span> port <span class="number">7</span> priority <span class="number">0</span> path cost <span class="number">0</span></span><br><span class="line">	nd6 options=<span class="number">1</span>&lt;<span class="variable constant_">PERFORMNUD</span>&gt;</span><br><span class="line">	<span class="symbol">media:</span> &lt;unknown type&gt;</span><br><span class="line">	<span class="symbol">status:</span> inactive</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="2">
+<li><code>ping</code><br>检查网络是否联通</li>
+</ol>
+<pre><code>示例：
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>ping -c <span class="number">3</span> www.baidu.com  <span class="comment"># ping 百度，`-c 3` 表示三次</span></span><br><span class="line"><span class="variable constant_">PING</span> www.a.shifen.com (<span class="number">220.181</span>.<span class="number">112.244</span>): <span class="number">56</span> data bytes</span><br><span class="line"><span class="number">64</span> bytes from <span class="number">220.181</span>.<span class="number">112.244</span>: icmp_seq=<span class="number">0</span> ttl=<span class="number">55</span> time=<span class="number">2.329</span> ms</span><br><span class="line"><span class="number">64</span> bytes from <span class="number">220.181</span>.<span class="number">112.244</span>: icmp_seq=<span class="number">1</span> ttl=<span class="number">55</span> time=<span class="number">2.651</span> ms</span><br><span class="line"><span class="number">64</span> bytes from <span class="number">220.181</span>.<span class="number">112.244</span>: icmp_seq=<span class="number">2</span> ttl=<span class="number">55</span> time=<span class="number">9.731</span> ms</span><br><span class="line"></span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line"><span class="number">3</span> packets transmitted, <span class="number">3</span> packets received, <span class="number">0.0</span>% packet loss</span><br><span class="line">round-trip min/avg/max/stddev = <span class="number">2.329</span>/<span class="number">4.904</span>/<span class="number">9.731</span>/<span class="number">3.416</span> ms</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="10">
+<li><code>whereis</code><br>  查看命令路径</li>
+</ol>
+<p>  示例：<br>  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LeoMacBookPro</span><span class="symbol">:~</span> <span class="title class_">Leo</span><span class="variable">$ </span>whereis ls</span><br><span class="line">/bin/ls</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、小技巧"><a href="#二、小技巧" class="headerlink" title="二、小技巧"></a>二、小技巧</h2><ol>
+<li><p><code>clear</code> 清屏<br>  直接按 Ctrl + L</p>
+</li>
+<li><p>按 tab 键会自动补全</p>
+</li>
+<li><p>按 ↑ 键会显示上一次使用过的命令</p>
+</li>
+<li><p>Ctrl + C 终端下操作的强制退出</p>
+</li>
+<li><p><code>history</code> 显示历史命令</p>
+</li>
+<li><p>⌘ + +&#x2F;- 终端下放大&#x2F;缩小字体</p>
+</li>
+<li><p>编辑状态下的退出命令</p>
+</li>
+<li><p><code>wq</code>   保存并退出</p>
+</li>
+<li><p><code>wq!</code>  强制保存并退出</p>
+</li>
+<li><p><code>q!</code>   强制退出，不保存</p>
+</li>
+<li><p>设置终端语法高亮等</p>
+</li>
+</ol>
+  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim ~<span class="regexp">/.vimrc # 创建一个编译环境的脚本的副本</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"># 编辑输入以下内容</span></span><br><span class="line"><span class="regexp">syntax on     # 开启语法高亮</span></span><br><span class="line"><span class="regexp">set tabstop=4 # 设置tab缩进 一次4个字节</span></span><br><span class="line"><span class="regexp">set number    # 设置行号</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="联系与支持"><a href="#联系与支持" class="headerlink" title="联系与支持"></a>联系与支持</h2><ul>
+<li><p>Mail: <code>echo bGVvZGF4aWFAZ21haWwuY29tCg== | base64 -D</code></p>
+</li>
+<li><p>GitHub:	<a target="_blank" rel="noopener" href="https://github.com/iTofu">iTofu</a></p>
+</li>
+<li><p>如果你想对我的开发或是开源项目进行支持捐助，请扫描下方二维码，谢谢！👇</p>
+<p><img src="https://cdnqiniu.leox.top/donate.png" alt="LEO"></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/reward_wechatpay.png" alt="Leo 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/reward_alipay.png" alt="Leo 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+              <a href="/tags/Vim/" rel="tag"># Vim</a>
+              <a href="/tags/Terminal/" rel="tag"># Terminal</a>
+              <a href="/tags/Command/" rel="tag"># Command</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/02/02/iOS-Auto-Build-From-SVN-Version/" rel="prev" title="【iOS】如何让 Xcode 自动更新 SVN Version 到 Build">
+                  <i class="fa fa-angle-left"></i> 【iOS】如何让 Xcode 自动更新 SVN Version 到 Build
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/03/04/iOS-Apple-Pay-Developer-Guide-1/" rel="next" title="【iOS】Apple Pay 开发指南（一）">
+                  【iOS】Apple Pay 开发指南（一） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Leo</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.js" integrity="sha256-+2+qOqR8CKoHh/AsVR9k2qaDBKWjYNC2nozhYmv5j9k=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"leodev","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,38 +1,707 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="zILgsgi5ER8p5_XVo4E0YCH4sILBEzNS-vkKyE8C39E">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"note.leodev.me","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="面试题这种东西，你看或者不看，它就在那里，不增不减。 面试官这种生物，你喜或者不喜，他就在那里，静候佳音。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【iOS】面试题">
+<meta property="og:url" content="https://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/index.html">
+<meta property="og:site_name" content="LEO&#39;S NOTE">
+<meta property="og:description" content="面试题这种东西，你看或者不看，它就在那里，不增不减。 面试官这种生物，你喜或者不喜，他就在那里，静候佳音。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdnqiniu.leox.top/donate.png">
+<meta property="article:published_time" content="2014-08-20T01:29:30.000Z">
+<meta property="article:modified_time" content="2024-04-02T07:10:59.129Z">
+<meta property="article:author" content="Leo">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdnqiniu.leox.top/donate.png">
 
 
-{% block title %} {{ page.title }} | {{ config.title }} {% endblock %}
-
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="canonical" href="https://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/">
 
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/","path":"2014/08/20/[iOS]-Interview-Questions/","title":"【iOS】面试题"}</script>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【iOS】面试题 | LEO'S NOTE</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83213218-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-83213218-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?ca0e9ed35135eb5508e91e7fad4ba77c"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="LEO'S NOTE" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LEO'S NOTE</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">心有猛虎 | 细嗅蔷薇</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-lol"><a href="https://leodev.me/lol" rel="section" target="_blank">lol</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E3%80%91-%E9%80%9A%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">【第一部分】 通用面试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E3%80%91-%E6%8E%A8%E8%8D%90%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">【第二部分】 推荐面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-C%E8%AF%AD%E8%A8%80-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80"><span class="nav-number">2.1.</span> <span class="nav-text">1-10 C语言 &amp; 计算机基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-20-Objective-C-Xcode"><span class="nav-number">2.2.</span> <span class="nav-text">11-20 Objective-C &amp; Xcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-30-iOS"><span class="nav-number">2.3.</span> <span class="nav-text">21-30 iOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#31-39-%E4%BB%A3%E7%A0%81"><span class="nav-number">2.4.</span> <span class="nav-text">31-39 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E7%B3%BB%E4%B8%8E%E6%8D%90%E8%B5%A0"><span class="nav-number">4.</span> <span class="nav-text">联系与捐赠</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Leo</p>
+  <div class="site-description" itemprop="description">Stay Hungry.<br>Stay Foolish.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://leodev.me/" title="Cover → https:&#x2F;&#x2F;LeoDev.me" rel="noopener me" target="_blank">Cover</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/iTofu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iTofu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/coderleo" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;coderleo" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/leodaxia" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;leodaxia" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cdnqiniu.leox.top/resume.pdf" title="CV → https:&#x2F;&#x2F;cdnqiniu.leox.top&#x2F;resume.pdf" rel="noopener me" target="_blank">CV</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/honor" title="Honor → &#x2F;honor" rel="noopener me">Honor</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/WishList" title="Wish → &#x2F;WishList" rel="noopener me">Wish</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://note.leodev.me/2014/08/20/[iOS]-Interview-Questions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Leo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEO'S NOTE">
+      <meta itemprop="description" content="Stay Hungry.<br>Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【iOS】面试题 | LEO'S NOTE">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【iOS】面试题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-08-20 09:29:30" itemprop="dateCreated datePublished" datetime="2014-08-20T09:29:30+08:00">2014-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-02 15:10:59" itemprop="dateModified" datetime="2024-04-02T15:10:59+08:00">2024-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iOS/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2014/08/20/%5BiOS%5D-Interview-Questions/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/08/20/[iOS]-Interview-Questions/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>面试题这种东西，你看或者不看，它就在那里，不增不减。</p>
+<p>面试官这种生物，你喜或者不喜，他就在那里，静候佳音。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h2 id="【第一部分】-通用面试题"><a href="#【第一部分】-通用面试题" class="headerlink" title="【第一部分】 通用面试题"></a>【第一部分】 通用面试题</h2><p>1、即时聊天App不会采用的网络传输方式是    <strong>D</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A UDP B TCP C HTTP D FTP</span><br></pre></td></tr></table></figure>
+
+<p>2、下列技术不属于多线程的是       <strong>A</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A Block B NSThread C NSOperation D GCD</span><br></pre></td></tr></table></figure>
+
+
+<p>3、线程和进程的区别不正确的是  <strong>B</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 进程和线程都是由操作系统所体会的程序运行的基本单元</span><br><span class="line"></span><br><span class="line">B 线程之间有单独的地址空间</span><br><span class="line"></span><br><span class="line">C 进程和线程的主要差别在于它们是不同的操作系统资源管理方式</span><br><span class="line"></span><br><span class="line">D 线程有自己的堆栈和局部变量</span><br></pre></td></tr></table></figure>
+
+
+<p>4、堆和栈的区别正确的是 <strong>D</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 对于栈来讲，我们需要手工控制，容易产生memory leak</span><br><span class="line"></span><br><span class="line">B 对于堆来说，释放工作由编译器自动管理，无需我们手工控制</span><br><span class="line"></span><br><span class="line">C 在Windows下,栈是向高地址扩展的数据结构，是连续的内存区域，栈顶的地址和栈的最大容量是系统预先规定好的</span><br><span class="line"></span><br><span class="line">D 对于堆来讲，频繁的new/delete势必会造成内存空间的不连续，从而造成大量的碎片，使程序效率降低</span><br></pre></td></tr></table></figure>
+
+
+<p>5、下列回调机制的理解不正确的是   <strong>B</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 目标动作对：当两个对象之间有⽐比较紧密的关系时，如视图控制器与其下的某个视图。</span><br><span class="line"></span><br><span class="line">B 代理：也叫委托，当某个对象收到多个事件，并要求同一个对象来处理所有事件时。委托机制必须依赖于某个协议定义的⽅法来发送消息。</span><br><span class="line"></span><br><span class="line">C 通告机制：当需要多个对象或两个⽆无关对象处理同一个事件时。</span><br><span class="line"></span><br><span class="line">D Block：适⽤于回调只发⽣生一次的简单任务。</span><br></pre></td></tr></table></figure>
+
+
+<p>6、对于runloop的理解不正确的是 <strong>C</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 每一个线程都有其对应的RunLoop</span><br><span class="line"></span><br><span class="line">B 默认非主线程的RunLoop是没有运行的</span><br><span class="line"></span><br><span class="line">C 在一个单独的线程中没有必要去启用RunLoop</span><br><span class="line"></span><br><span class="line">D 可以将NSTimer添加到runloop中</span><br></pre></td></tr></table></figure>
+
+
+<p>7、UITableView中cell的复用是由几个数组实现的 <strong>B</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A 1 B 2  C 3 D 3或4</span><br></pre></td></tr></table></figure>
+
+
+<p>8、在线播放视频一般访问服务器中的（ ）类型文件   <strong>A</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A M3U8 B flv C MP4 D data</span><br></pre></td></tr></table></figure>
+
+
+<p>9、点击Button响应链中最终得到响应的是 <strong>B</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A Window B Application C AppDelegate D UIViewController</span><br></pre></td></tr></table></figure>
+
+
+<p>10、内存管理理解不正确的是          <strong>B</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 程序A里有一段内存被成功申请完成之后，内存计数器就从0变为1 (这个过程是alloc);</span><br><span class="line"></span><br><span class="line">B 程序B里要使用已存在内存，那么内存计数器从1变为2 (这个过程是retain或者copy);</span><br><span class="line"></span><br><span class="line">C 紧接着程序A不需要这个内存了，那么程序A就把这个内存计数器减1 (这个过程是release);</span><br><span class="line"></span><br><span class="line">D 当系统发现这个内存计数器变为小于等于0，那么就调用垃圾回收程序把这段内存回收(这个过程是dealloc)；</span><br></pre></td></tr></table></figure>
+
+
+<p>11、断点续传需要在请求头中添加的控制续传最重要的关键字是 <strong>A</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A range B length C type D size</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>12、post传输的最大文件限制为 <strong>C</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A 1G B 2G C 4G  D 8G</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>13、MVC优点不正确的是  <strong>D</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 低耦合性</span><br><span class="line"></span><br><span class="line">B 高重用性和可适用性</span><br><span class="line"></span><br><span class="line">C 较低的生命周期成本</span><br><span class="line"></span><br><span class="line">D 代码高效率</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="【第二部分】-推荐面试题"><a href="#【第二部分】-推荐面试题" class="headerlink" title="【第二部分】 推荐面试题"></a>【第二部分】 推荐面试题</h2><h3 id="1-10-C语言-计算机基础"><a href="#1-10-C语言-计算机基础" class="headerlink" title="1-10 C语言 &amp; 计算机基础"></a>1-10 C语言 &amp; 计算机基础</h3><hr>
+<p>1、请看下面一段代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">static int a = 1;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int b = 2;</span><br><span class="line"></span><br><span class="line">	char *c = NULL;</span><br><span class="line"></span><br><span class="line">	c = (char *)malloc(100 * sizeof(char));</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请问访问a,b,c 3种类型变量的效率从高到低依次是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. cba</span><br><span class="line"></span><br><span class="line">B. abc</span><br><span class="line"></span><br><span class="line">C. acb</span><br><span class="line"></span><br><span class="line">D. bca</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<p>2、下面四种内部排序算法中哪一种在最差情况下时间复杂度最高？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 快速排序</span><br><span class="line"></span><br><span class="line">B. 冒泡排序</span><br><span class="line"></span><br><span class="line">C. 堆排序</span><br><span class="line"></span><br><span class="line">D. 归并排序</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<p>3、Shell中，将command1的输出作为command2的输入应该使用的命令是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. command1 &amp;&amp; command2</span><br><span class="line"></span><br><span class="line">B. command1 &gt; command2</span><br><span class="line"></span><br><span class="line">C. command1 &amp; command2</span><br><span class="line"></span><br><span class="line">D. command1 | command2</span><br></pre></td></tr></table></figure>
+
+<p><strong>D</strong></p>
+<p>4、下面的数据结构中不属于线性结构的是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 栈</span><br><span class="line"></span><br><span class="line">B. 链表</span><br><span class="line"></span><br><span class="line">C. 二叉树</span><br><span class="line"></span><br><span class="line">D. 线性表</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<p>5、在一个二叉树上，第5层最多可以有的节点数是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 2</span><br><span class="line"></span><br><span class="line">B. 8</span><br><span class="line"></span><br><span class="line">C. 16</span><br><span class="line"></span><br><span class="line">D. 32</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<p>6、在长度为n的线性表上进行顺序查找，在最糟糕的情况下需要的比较次数是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. n</span><br><span class="line"></span><br><span class="line">B. 2n-1</span><br><span class="line"></span><br><span class="line">C. 2n</span><br><span class="line"></span><br><span class="line">D. n^2</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>7、下面那项不是动态语言的特性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 在运行时替换一个类</span><br><span class="line"></span><br><span class="line">B. 在运行时动态加载lib文件</span><br><span class="line"></span><br><span class="line">C. 在运行时修改对象中的方法</span><br><span class="line"></span><br><span class="line">D. 在运行时增加对象的方法</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<p>8、已知二叉树后序遍历序列是dabec，中序遍历序列是debac，它的前序遍历序列是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. cedba</span><br><span class="line"></span><br><span class="line">B. acbed</span><br><span class="line"></span><br><span class="line">C. decab</span><br><span class="line"></span><br><span class="line">D. deabc</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>9、以下多线程对int型变量x的操作，哪个不需要进行同步：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. x=y</span><br><span class="line"></span><br><span class="line">B. x++</span><br><span class="line"></span><br><span class="line">C. ++x</span><br><span class="line"></span><br><span class="line">D. x=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>D</strong></p>
+<p>10、多线程中栈与堆是公有的还是私有的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 栈公有, 堆私有</span><br><span class="line"></span><br><span class="line">B. 栈公有，堆公有</span><br><span class="line"></span><br><span class="line">C. 栈私有, 堆公有</span><br><span class="line"></span><br><span class="line">D. 栈私有，堆私有</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<h3 id="11-20-Objective-C-Xcode"><a href="#11-20-Objective-C-Xcode" class="headerlink" title="11-20 Objective-C &amp; Xcode"></a>11-20 Objective-C &amp; Xcode</h3><hr>
+<p>11、在Xcode中，需要编译混合Objective-C和C++的源码文件，需要将文件格式的后缀改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. .c</span><br><span class="line"></span><br><span class="line">B. .cpp</span><br><span class="line"></span><br><span class="line">C. .mm</span><br><span class="line"></span><br><span class="line">D. .m</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<p>12、Objective-C声明一个类所要用到的编译指令是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. @interface SomeClass</span><br><span class="line"></span><br><span class="line">B. @protocol SomeClass</span><br><span class="line"></span><br><span class="line">C. @implementation SomeClass</span><br><span class="line"></span><br><span class="line">D. @autorelease SomeClass</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>13、使用Xcode创建工程时，支持同时创建的版本管理库是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. Subversion</span><br><span class="line"></span><br><span class="line">B. Mercurial</span><br><span class="line"></span><br><span class="line">C. Git</span><br><span class="line"></span><br><span class="line">D. Concurrent Versions System</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<p>14、下面那个方法不属于NSObject的内省（Introspection）方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. init</span><br><span class="line"></span><br><span class="line">B. isKindOfClass</span><br><span class="line"></span><br><span class="line">C. responseToSelector</span><br><span class="line"></span><br><span class="line">D. isMemberOfClass</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>15、使用protocol时，声明一组可选择实现与否的函数，需要在声明的前一行加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. @required</span><br><span class="line"></span><br><span class="line">B. @optional</span><br><span class="line"></span><br><span class="line">C. @interface</span><br><span class="line"></span><br><span class="line">D. @protocol</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<blockquote>
+<p>@required 是必须实现，它的代理必须实现协议中的 @required 方法。</p>
+<p>如果不声明 @optional，默认 @required。</p>
+</blockquote>
+<p>16、需要在手动管理内存分配和释放的Xcode项目中引入和编译用ARC风格编写的文件，需要在文件的Compiler Flags上添加参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. -shared</span><br><span class="line"></span><br><span class="line">B. -fno-objc-arc</span><br><span class="line"></span><br><span class="line">C. -fobjc-arc</span><br><span class="line"></span><br><span class="line">D. -dynamic</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<blockquote>
+<ul>
+<li><p>MRC中引入ARC文件：</p>
+<p>  <code>-fobjc-arc</code></p>
+</li>
+<li><p>ARC中引入MRC文件：</p>
+<p>  <code>-fno-objc-arc</code></p>
+</li>
+</ul>
+</blockquote>
+<p>17、下面关于Objective-C内存管理的描述错误的是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 当使用ARC来管理内存时，代码中不可以出现autorelease</span><br><span class="line"></span><br><span class="line">B. autoreleasepool 在 drain 的时候会释放在其中分配的对象</span><br><span class="line"></span><br><span class="line">C. 当使用ARC来管理内存时，在线程中大量分配对象而不用autoreleasepool则可能会造成内存泄露</span><br><span class="line"></span><br><span class="line">D. 在使用ARC的项目中不能使用NSZone</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>18、下面关于#import和#include的描述正确的是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. #import 是 #include 的替代指令，防止重复引用</span><br><span class="line"></span><br><span class="line">B. #import 和 #include 不可以混合使用</span><br><span class="line"></span><br><span class="line">C. #import 只用于引用 Objective-C的文件，#include 只用于引用C和C++的文件</span><br><span class="line"></span><br><span class="line">D. #import 和 #include 的使用效果完全相同</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>19、下面的代码问题在哪？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@implementation xxx</span><br><span class="line">…</span><br><span class="line">…</span><br><span class="line">- (void) setVar:(int)i &#123;</span><br><span class="line"></span><br><span class="line">     self.var = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>答案是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 应该将var synthesize</span><br><span class="line"></span><br><span class="line">B. 调用会出现死循环</span><br><span class="line"></span><br><span class="line">C. 正常</span><br><span class="line"></span><br><span class="line">D. 返回值错误</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<p>20、下面那个方法可以比较两个 NSString *str1, *str2 的异同</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. if(str1 = str2) xxx ;</span><br><span class="line"></span><br><span class="line">B. if([str1 isEqualToString:str2]) xxx ;</span><br><span class="line"></span><br><span class="line">C. if(str1 &amp;&amp; str2) xxx ;</span><br><span class="line"></span><br><span class="line">D. if([str1 length] == [str2 length]) xxx;</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<h3 id="21-30-iOS"><a href="#21-30-iOS" class="headerlink" title="21-30 iOS"></a>21-30 iOS</h3><hr>
+<p>21、下面哪个不属于对象数据序列化方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. JSON</span><br><span class="line"></span><br><span class="line">B. Property List</span><br><span class="line"></span><br><span class="line">C. XML</span><br><span class="line"></span><br><span class="line">D. HTTP</span><br></pre></td></tr></table></figure>
+
+<p><strong>D</strong></p>
+<p>22、在UIKit中，frame与bounds的区别是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. frame 是 bounds 的别名</span><br><span class="line"></span><br><span class="line">B. frame 是 bounds 的继承类</span><br><span class="line"></span><br><span class="line">C. frame 的参考系是父视图坐标，bounds 的参考系是自身的坐标</span><br><span class="line"></span><br><span class="line">D. frame 的参考系是自身坐标，bounds 的参考系是父视图的坐标</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<p>23、Objective-C有私有方法吗？有私有变量吗？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 有私有方法和私有变量</span><br><span class="line"></span><br><span class="line">B. 没有私有方法也没有私有变量</span><br><span class="line"></span><br><span class="line">C. 没有私有方法，有私有变量</span><br><span class="line"></span><br><span class="line">D. 有私有方法，没有私有变量</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<blockquote>
+<p>这里选 C 是有疑点的。</p>
+<p>私有变量不用说了，在.m里面匿名声明的就是私有变量了。</p>
+<p>私有方法则是值得推敲的。其实在.m里面不声明直接实现的方法，从效果上来讲，应该也能算是私有方法了，因为包括它的子类在内的其他类，都是无法访问该方法的。当然，称之为“隐藏方法”或许更好。</p>
+</blockquote>
+<p>24、下面关于线程管理错误的是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. GCD所用的开销要比NSThread大</span><br><span class="line"></span><br><span class="line">B. 可以在子线程中修改UI元素</span><br><span class="line"></span><br><span class="line">C. NSOperationQueue是比NSthread更高层的封装</span><br><span class="line"></span><br><span class="line">D. GCD可以根据不同优先级分配线程</span><br></pre></td></tr></table></figure>
+
+<p><strong>B</strong></p>
+<p>25、下面代码的作用是让doSomeThing函数每隔1秒被调用1次。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSTimer *myTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(doSomething:) userInfo:nil repeats:YES];</span><br><span class="line"></span><br><span class="line">[myTimer fire];</span><br></pre></td></tr></table></figure>
+
+<p>请问哪里有问题？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 没有将timer加入runloop</span><br><span class="line"></span><br><span class="line">B. doSomeThing缺少参数</span><br><span class="line"></span><br><span class="line">C. 忘记传递数据给userInfo</span><br><span class="line"></span><br><span class="line">D. myTimer对象未通过[[myTimer alloc] init]方法初始化</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<p>26、UIViewController在显示过程中，各个方法的调用顺序是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. init -&gt; viewDidLoad -&gt; viewDidAppear -&gt; viewDidUnload</span><br><span class="line"></span><br><span class="line">B. init -&gt; viewDidAppear -&gt; viewDidLoad -&gt; viewDidUnload</span><br><span class="line"></span><br><span class="line">C. init -&gt; viewDidLoad -&gt; viewDidUnload -&gt; viewDidAppear</span><br><span class="line"></span><br><span class="line">D. init -&gt; viewDidAppear -&gt; viewDidUnload -&gt; viewDidLoad</span><br></pre></td></tr></table></figure>
+
+<p><strong>A</strong></p>
+<blockquote>
+<p>viewDidUnload 在iOS 5.0之后不再生效，类似的方法：<br><code>didReceiveMemoryWarning</code>	&#x2F;&#x2F; 接收到内存警告时调用</p>
+<blockquote>
+<p>官方文档：</p>
+<p><code>- viewDidUnload</code> (iOS 6.0)<br>Called when the controller’s view is released from memory.</p>
+<p><strong>Deprecation Statement</strong><br>Views are no longer purged under low-memory conditions and so this method is never called.</p>
+<p><strong>Declaration</strong><br><em>OBJECTIVE-C</em><br><code>- (void)viewDidUnload</code></p>
+<p><strong>Discussion</strong><br>In iOS 5 and earlier, when a low-memory condition occurred and the current view controller’s views were not needed, the system could opt to call this method after the view controller’s view had been released. This method was your chance to perform any final cleanup. If your view controller stored separate references to the view or its subviews, you could use this method to release those references. You could also use this method to remove references to any objects that you created to support the view but that are no longer needed now that the view is gone. You would not use this method to release user data or any other information that cannot be easily recreated.<br>In iOS 6 and later, clearing references to views and other objects in your view controller is unnecessary.<br>At the time this method is called, the view property is nil.</p>
+<p><strong>Availability</strong><br>Available in iOS 3.0 and later.<br>Deprecated in iOS 6.0.</p>
+</blockquote>
+</blockquote>
+<p>27、使用imageNamed方法创建UIImage对象时，与普通的init方法有什么区别？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. 没有区别，只是为了方便</span><br><span class="line"></span><br><span class="line">B. imageNamed方法只是创建了一个指针，没有分配其他内存</span><br><span class="line"></span><br><span class="line">C. imageNamed方法将图片加载到内存中后不再释放</span><br><span class="line"></span><br><span class="line">D. imageNamed方法将使用完图片后立即释放</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<p>28、一个类的delegate（代理）的作用不正确的是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. delegate中的函数在其他类中实现</span><br><span class="line"></span><br><span class="line">B. 主要用于不同类型的对象之间一对一传递消息</span><br><span class="line"></span><br><span class="line">C. 没有指派则不会触发</span><br><span class="line"></span><br><span class="line">D. 可以一个对象的delegate指派给多个其他类型的对象</span><br></pre></td></tr></table></figure>
+
+<p><strong>D</strong></p>
+<p>29、在没有navigationController的情况下，要从一个ViewController切换到另一个ViewController应该</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. [self.navigationController pushViewController:nextViewController animated:YES];</span><br><span class="line"></span><br><span class="line">B. [self.view addSubview:nextViewController.view];</span><br><span class="line"></span><br><span class="line">C. [self pushViewController:nextViewController animated:YES];</span><br><span class="line"></span><br><span class="line">D. [self presentModalViewController:nextViewController animated:YES];</span><br></pre></td></tr></table></figure>
+
+<p><strong>D</strong></p>
+<blockquote>
+<p>从iOS5.0开始，D项应该更新为</p>
+<p>[self presentViewController:nextViewController animated:YES completion:nil];</p>
+<p>presentModalViewController:animated: iOS 6.0已过期</p>
+<blockquote>
+<p>官方文档：</p>
+<p><code>- presentModalViewController:animated:</code> (iOS 6.0)<br>Presents a modal view managed by the given view controller to the user.</p>
+<p><strong>Deprecation Statement</strong><br>Use <code>presentViewController:animated:completion:</code> instead.</p>
+</blockquote>
+</blockquote>
+<p>30、什么是key window？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A. App中唯一的那个UIWindow对象</span><br><span class="line"></span><br><span class="line">B. 可以指定一个key的UIWindow</span><br><span class="line"></span><br><span class="line">C. 可接收到键盘输入等事件的UIWindow</span><br><span class="line"></span><br><span class="line">D. 不可以隐藏的那个UIWindow对象</span><br></pre></td></tr></table></figure>
+
+<p><strong>C</strong></p>
+<blockquote>
+<blockquote>
+<p>官方文档：</p>
+<p>“The key window is the one that is designated to receive keyboard and other non-touch related events. Only one window at a time may be the key window.”</p>
+</blockquote>
+<p>翻译过来就是说，keyWindow是指定的用来接收键盘以及非触摸类的消息，而且程序中每一个时刻只能有一个window是keyWindow。</p>
+<p>参考：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/smileEvday/archive/2012/11/16/UIWindow.html">UIWindow的一点儿思考</a>–一片枫叶</p>
+</blockquote>
+<h3 id="31-39-代码"><a href="#31-39-代码" class="headerlink" title="31-39 代码"></a>31-39 代码</h3><hr>
+<p>31、求以下程序段的输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int test(int x, int y) &#123;</span><br><span class="line"></span><br><span class="line">	x = x + y;</span><br><span class="line"></span><br><span class="line">	return x * y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line"></span><br><span class="line">		int x = 3, y = 10, z = test(x, y);</span><br><span class="line"></span><br><span class="line">		NSLog(@&quot;%d%d&quot;, x++, ++z);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>答案是   <strong>A</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A 331 B 330  C 431 D  430</span><br></pre></td></tr></table></figure>
+
+
+<p>32、求以下程序段的输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int func(int x) &#123;</span><br><span class="line"></span><br><span class="line">	int countx = 0;</span><br><span class="line"></span><br><span class="line">	while (x) &#123;</span><br><span class="line"></span><br><span class="line">		countx++;</span><br><span class="line"></span><br><span class="line">		x = x&amp;(x-1);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return countx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line"></span><br><span class="line">		NSLog(@&quot;%d&quot;, func(2013));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>答案是  <strong>D</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A 1 B 5 C 8 D 9</span><br></pre></td></tr></table></figure>
+
+
+<p>33、下面说法不正确的是 <strong>C</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A readwrite 是可读可写特性；需要生成getter方法和setter方法时</span><br><span class="line"></span><br><span class="line">B readonly 是只读特性  只会生成getter方法 不会生成setter方法 ;不希望属性在类外改变</span><br><span class="line"></span><br><span class="line">C assign 是赋值特性，和weak一样，可用weak代替；</span><br><span class="line"></span><br><span class="line">D retain 表示持有特性，setter方法将传入参数先保留，再赋值，传入参数的retaincount会+1;</span><br></pre></td></tr></table></figure>
+
+
+<p>34、对于语句 NSString *obj &#x3D; [[NSData alloc] init]; obj在编译时和运行时分别时什么类型的对象？ <strong>A</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 编译时是NSString的类型；运行时是NSData类型的对象</span><br><span class="line"></span><br><span class="line">B 编译时是NSObject的类型；运行时是NSData类型的对象</span><br><span class="line"></span><br><span class="line">C 编译时是NSData的类型；运行时是NSString类型的对象</span><br><span class="line"></span><br><span class="line">D 编译时是NSObject的类型；运行时是NSString类型的对象</span><br></pre></td></tr></table></figure>
+
+
+<p>35、Objective-C中的线程下面描述不正确的是  <strong>B</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 使用NSThread创建，使用GCD的dispatch</span><br><span class="line"></span><br><span class="line">B 直接使用NSOperation，然后将其加入NSOperationQueue</span><br><span class="line"></span><br><span class="line">C 在主线程执行代码，方法是performSelectorOnMainThread</span><br><span class="line"></span><br><span class="line">D 如果想延时执行代码可以用performSelector:onThread:withObject:waitUntilDone:</span><br></pre></td></tr></table></figure>
+
+<p>36、下列不属于iOS存储方式的是    <strong>A</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A NSFileManager   B 归档   C SQLite   D CoreData</span><br></pre></td></tr></table></figure>
+
+
+<p>37、IP Phone的原理是什么?       <strong>C</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A IPV4  B DHCP C IPV6  D DNS</span><br></pre></td></tr></table></figure>
+
+
+<p>38、类别的作用不正确的是 <strong>D</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 将类的实现分散到多个不同文件或多个不同框架中。</span><br><span class="line"></span><br><span class="line">B 创建对私有方法的前向引用。</span><br><span class="line"></span><br><span class="line">C 向对象添加非正式协议。 继承可以增加，修改或者删除方法。</span><br><span class="line"></span><br><span class="line">D 不能添加属性</span><br></pre></td></tr></table></figure>
+
+
+<p>39、对NSOperationQueue理解不正确的是 <strong>D</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A 存放NSOperation的集合类</span><br><span class="line"></span><br><span class="line">B 可以设置最大并发数</span><br><span class="line"></span><br><span class="line">C 放进去的线程会自动执行</span><br><span class="line"></span><br><span class="line">D 用户需要管理放进去的线程执行顺序</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li>本文面试题收集自网络，解答依个人看法，如有偏颇，欢迎留言指正！</li>
+</ul>
+<h2 id="联系与捐赠"><a href="#联系与捐赠" class="headerlink" title="联系与捐赠"></a>联系与捐赠</h2><ul>
+<li><p>Mail: <code>echo bGVvZGF4aWFAZ21haWwuY29tCg== | base64 -D</code></p>
+</li>
+<li><p>GitHub:	<a target="_blank" rel="noopener" href="https://github.com/iTofu">iTofu</a></p>
+</li>
+<li><p>如果你想对我的开发或是开源项目进行支持捐助，请扫描下方二维码，谢谢！👇</p>
+<p>  <img src="https://cdnqiniu.leox.top/donate.png" alt="Alipay"></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/reward_wechatpay.png" alt="Leo 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/reward_alipay.png" alt="Leo 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/12/07/Hello-Hexo/" rel="next" title="Hello Hexo">
+                  Hello Hexo <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2014 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Leo</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.js" integrity="sha256-+2+qOqR8CKoHh/AsVR9k2qaDBKWjYNC2nozhYmv5j9k=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"leodev","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
