@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="https://cdnqiniu.leox.top/leodev_avatar.jpg">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://cdnqiniu.leox.top/leodev_avatar.jpg">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://cdnqiniu.leox.top/leodev_avatar.jpg">
-  <link rel="mask-icon" href="https://cdnqiniu.leox.top/leodev_avatar.jpg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdnqiniu.leox.top/avatar/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdnqiniu.leox.top/avatar/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdnqiniu.leox.top/avatar/avatar.png">
+  <link rel="mask-icon" href="https://cdnqiniu.leox.top/avatar/avatar.png" color="#222">
   <meta name="google-site-verification" content="zILgsgi5ER8p5_XVo4E0YCH4sILBEzNS-vkKyE8C39E">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="LEO&#39;S NOTE">
 <meta property="og:description" content="甩掉 Objective-C 的历史包袱，做一名纯粹的 Swift 程序员。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://oi5xk258d.qnssl.com/swifty-methods-xcode-yosemite.png">
-<meta property="og:image" content="https://cdnqiniu.leox.top/donate.png">
+<meta property="og:image" content="https://cdnqiniu.leox.top/common2/swifty-methods-xcode-yosemite.png">
+<meta property="og:image" content="https://cdnqiniu.leox.top/common/donate.png">
 <meta property="article:published_time" content="2016-03-07T09:52:23.000Z">
-<meta property="article:modified_time" content="2024-04-03T07:17:37.730Z">
+<meta property="article:modified_time" content="2024-04-03T09:30:40.108Z">
 <meta property="article:author" content="Leo">
 <meta property="article:tag" content="iOS">
 <meta property="article:tag" content="Swift">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://oi5xk258d.qnssl.com/swifty-methods-xcode-yosemite.png">
+<meta name="twitter:image" content="https://cdnqiniu.leox.top/common2/swifty-methods-xcode-yosemite.png">
 
 
 <link rel="canonical" href="https://note.leodev.me/2016/03/07/iOS-Swifty-methods/">
@@ -259,7 +259,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-03 15:17:37" itemprop="dateModified" datetime="2024-04-03T15:17:37+08:00">2024-04-03</time>
+      <time title="修改时间：2024-04-03 17:30:40" itemprop="dateModified" datetime="2024-04-03T17:30:40+08:00">2024-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -325,7 +325,7 @@
 <h2 id="我们有办法"><a href="#我们有办法" class="headerlink" title="我们有办法"></a>我们有办法</h2><p>前面说了那么多，我希望你能理解，不管命名多么的复杂，它都无法准确的表达它的用处。如果命名清晰，那很好，确实有助于理解，但是命名终究只是一个标记而已，无法代替文档的作用。</p>
 <p>那么接下来我们假设这样一个场景，一名年轻的 Swift 程序媛正在认真学习，然后她在人生中第一次遇到 <code>map</code> 、 <code>filter</code> 和 <code>reduce</code> 这三个家伙。光看名字她能理解这三个方法的用法吗？显然不能。当你理解它们的用处的时候再去看命名，当然是十分清晰，但是现在假设我们是第一次遇到这些方法，我们显然有点一头雾水。</p>
 <p>但是你可以这样做：按住 option 键，点击方法名：</p>
-<p><img src="https://oi5xk258d.qnssl.com/swifty-methods-xcode-yosemite.png" alt="By https://leodev.me"></p>
+<p><img src="https://cdnqiniu.leox.top/common2/swifty-methods-xcode-yosemite.png" alt="By https://leodev.me"></p>
 <p>是的就是这么简单！猜什么猜，直接按住 option 点它就行！点完之后你就可以看到方法的解释和参数的含义了，等你理解了它的用处你就会发现， <code>map</code> 的用处和 <code>arrayByEnumeratingObjectsUsingBlock</code> 这一大串的功能是一样的。简单粗暴，直接有效。</p>
 <h2 id="“噪音”"><a href="#“噪音”" class="headerlink" title="“噪音”"></a>“噪音”</h2><p>有人说，语意清晰比语句简洁更重要。没错，他们说的很对。但是简洁不代表不清晰。中国有个成语，言简意赅，就是说的这个。复杂冗长的命名同时也带来了很多负面影响。虽然现有的工具可以自动补全，这样写起来似乎也挺轻松的。但是在阅读的时候，啰嗦繁琐的命名总归是要消耗开发者大量的时间去阅读和理解，而言简意赅的命名读起来要轻松很多。</p>
 <p>我们再来看个简单例子，声明一个日期对象：</p>
@@ -380,7 +380,7 @@
 <li><p>GitHub:	<a target="_blank" rel="noopener" href="https://github.com/iTofu">iTofu</a></p>
 </li>
 <li><p>如果你想对我的开发或是开源项目进行支持捐助，请扫描下方二维码，谢谢！👇</p>
-<p><img src="https://cdnqiniu.leox.top/donate.png" alt="LEO"></p>
+<p><img src="https://cdnqiniu.leox.top/common/donate.png" alt="LEO"></p>
 </li>
 </ul>
 
