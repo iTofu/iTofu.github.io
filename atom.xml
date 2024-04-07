@@ -99,9 +99,9 @@
     <category term="Mac" scheme="https://note.leodev.me/categories/Hexo/node-js/Mac/"/>
     
     
-    <category term="node.js" scheme="https://note.leodev.me/tags/node-js/"/>
-    
     <category term="Hexo" scheme="https://note.leodev.me/tags/Hexo/"/>
+    
+    <category term="node.js" scheme="https://note.leodev.me/tags/node-js/"/>
     
     <category term="Mac" scheme="https://note.leodev.me/tags/Mac/"/>
     
@@ -448,9 +448,9 @@
     <category term="node.js" scheme="https://note.leodev.me/categories/HTML/node-js/"/>
     
     
-    <category term="HTML" scheme="https://note.leodev.me/tags/HTML/"/>
-    
     <category term="node.js" scheme="https://note.leodev.me/tags/node-js/"/>
+    
+    <category term="HTML" scheme="https://note.leodev.me/tags/HTML/"/>
     
   </entry>
   
