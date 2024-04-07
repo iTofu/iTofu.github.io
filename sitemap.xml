@@ -308,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/2016/08/18/Universal-Links-Test/</loc>
+    <loc>https://note.leodev.me/2016/03/11/Why-Coding/</loc>
     
     <lastmod>2024-04-02</lastmod>
     
@@ -317,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/2016/03/11/Why-Coding/</loc>
+    <loc>https://note.leodev.me/2016/08/18/Universal-Links-Test/</loc>
     
     <lastmod>2024-04-02</lastmod>
     
@@ -477,20 +477,6 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/tags/Apple-Pay/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://note.leodev.me/tags/Swift/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://note.leodev.me/tags/SVN/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -499,6 +485,20 @@
   
   <url>
     <loc>https://note.leodev.me/tags/shell/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/tags/Apple-Pay/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/tags/Swift/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -717,14 +717,14 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/</loc>
+    <loc>https://note.leodev.me/categories/iOS/SVN/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/SVN/</loc>
+    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -738,14 +738,14 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/UITextView/</loc>
+    <loc>https://note.leodev.me/categories/iOS/Swift/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/Swift/</loc>
+    <loc>https://note.leodev.me/categories/iOS/UITextView/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -766,14 +766,14 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/Swift/</loc>
+    <loc>https://note.leodev.me/categories/iOS/SVN/shell/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/SVN/shell/</loc>
+    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/Swift/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
