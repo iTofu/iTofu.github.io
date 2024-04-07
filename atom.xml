@@ -294,9 +294,9 @@
     
     <category term="iOS" scheme="https://note.leodev.me/tags/iOS/"/>
     
-    <category term="Apple Pay" scheme="https://note.leodev.me/tags/Apple-Pay/"/>
-    
     <category term="Swift" scheme="https://note.leodev.me/tags/Swift/"/>
+    
+    <category term="Apple Pay" scheme="https://note.leodev.me/tags/Apple-Pay/"/>
     
   </entry>
   
