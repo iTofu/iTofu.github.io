@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/webscan_360_cn.html</loc>
+    <loc>https://note.leodev.me/tags/index.html</loc>
     
     <lastmod>2024-04-02</lastmod>
     
@@ -245,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/tags/index.html</loc>
+    <loc>https://note.leodev.me/webscan_360_cn.html</loc>
     
     <lastmod>2024-04-02</lastmod>
     
@@ -456,27 +456,6 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/tags/git/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://note.leodev.me/tags/Linux/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://note.leodev.me/tags/Debian/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://note.leodev.me/tags/Apple-Pay/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -499,6 +478,27 @@
   
   <url>
     <loc>https://note.leodev.me/tags/shell/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/tags/git/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/tags/Linux/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/tags/Debian/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -626,13 +626,6 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/git/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://note.leodev.me/categories/Mac/Vim/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -641,6 +634,13 @@
   
   <url>
     <loc>https://note.leodev.me/categories/node-js/hexo/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://note.leodev.me/categories/git/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -703,7 +703,7 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/git/iOS/</loc>
+    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -711,13 +711,6 @@
   
   <url>
     <loc>https://note.leodev.me/categories/Mac/Vim/Terminal/</loc>
-    <lastmod>2024-04-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -738,6 +731,13 @@
   </url>
   
   <url>
+    <loc>https://note.leodev.me/categories/git/iOS/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://note.leodev.me/categories/iOS/Swift/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -752,7 +752,7 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/git/iOS/Linux/</loc>
+    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/Swift/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -766,14 +766,14 @@
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/Apple-Pay/Swift/</loc>
+    <loc>https://note.leodev.me/categories/iOS/SVN/shell/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://note.leodev.me/categories/iOS/SVN/shell/</loc>
+    <loc>https://note.leodev.me/categories/git/iOS/Linux/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
