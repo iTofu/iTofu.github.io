@@ -510,9 +510,9 @@
     
     <category term="node.js" scheme="https://note.leodev.me/tags/node-js/"/>
     
-    <category term="hexo" scheme="https://note.leodev.me/tags/hexo/"/>
-    
     <category term="Mac" scheme="https://note.leodev.me/tags/Mac/"/>
+    
+    <category term="hexo" scheme="https://note.leodev.me/tags/hexo/"/>
     
   </entry>
   
