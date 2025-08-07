@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/2015/12/14/[Mac-Tip]-Three-Finger-Drag-For-Force-Touch/</loc>
+    <loc>https://blog.leoxv.com/2015/12/21/[Mac-Tip]-How-To-Name-The-Local-Downloads-Folder/</loc>
     
     <lastmod>2025-08-06</lastmod>
     
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/2015/12/21/[Mac-Tip]-How-To-Name-The-Local-Downloads-Folder/</loc>
+    <loc>https://blog.leoxv.com/2015/12/14/[Mac-Tip]-Three-Finger-Drag-For-Force-Touch/</loc>
     
     <lastmod>2025-08-06</lastmod>
     
@@ -446,6 +446,13 @@
   </url>
   
   <url>
+    <loc>https://blog.leoxv.com/tags/Time/</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.leoxv.com/tags/%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -461,13 +468,6 @@
   
   <url>
     <loc>https://blog.leoxv.com/tags/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2025-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.leoxv.com/tags/Time/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -623,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/Vim/</loc>
+    <loc>https://blog.leoxv.com/categories/Time/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -637,14 +637,14 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/CocoaPods/Pod/iOS/</loc>
+    <loc>https://blog.leoxv.com/categories/Mac/Vim/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Time/</loc>
+    <loc>https://blog.leoxv.com/categories/CocoaPods/Pod/iOS/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -693,14 +693,14 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/iOS/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://blog.leoxv.com/categories/Mac/Vim/Terminal/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/Vim/Terminal/</loc>
+    <loc>https://blog.leoxv.com/categories/iOS/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
