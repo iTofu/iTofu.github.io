@@ -99,11 +99,11 @@
     <category term="Mac" scheme="https://blog.leoxv.com/categories/Hexo/node-js/Mac/"/>
     
     
-    <category term="Mac" scheme="https://blog.leoxv.com/tags/Mac/"/>
+    <category term="node.js" scheme="https://blog.leoxv.com/tags/node-js/"/>
     
     <category term="Hexo" scheme="https://blog.leoxv.com/tags/Hexo/"/>
     
-    <category term="node.js" scheme="https://blog.leoxv.com/tags/node-js/"/>
+    <category term="Mac" scheme="https://blog.leoxv.com/tags/Mac/"/>
     
   </entry>
   
@@ -448,9 +448,9 @@
     <category term="node.js" scheme="https://blog.leoxv.com/categories/HTML/node-js/"/>
     
     
-    <category term="node.js" scheme="https://blog.leoxv.com/tags/node-js/"/>
-    
     <category term="HTML" scheme="https://blog.leoxv.com/tags/HTML/"/>
+    
+    <category term="node.js" scheme="https://blog.leoxv.com/tags/node-js/"/>
     
   </entry>
   
@@ -508,9 +508,9 @@
     <category term="Mac" scheme="https://blog.leoxv.com/categories/node-js/hexo/Mac/"/>
     
     
-    <category term="Mac" scheme="https://blog.leoxv.com/tags/Mac/"/>
-    
     <category term="node.js" scheme="https://blog.leoxv.com/tags/node-js/"/>
+    
+    <category term="Mac" scheme="https://blog.leoxv.com/tags/Mac/"/>
     
     <category term="hexo" scheme="https://blog.leoxv.com/tags/hexo/"/>
     
