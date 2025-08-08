@@ -182,11 +182,11 @@
     <category term="iOS" scheme="https://blog.leoxv.com/categories/CocoaPods/Pod/iOS/"/>
     
     
+    <category term="iOS" scheme="https://blog.leoxv.com/tags/iOS/"/>
+    
     <category term="CocoaPods" scheme="https://blog.leoxv.com/tags/CocoaPods/"/>
     
     <category term="Pod" scheme="https://blog.leoxv.com/tags/Pod/"/>
-    
-    <category term="iOS" scheme="https://blog.leoxv.com/tags/iOS/"/>
     
   </entry>
   
@@ -476,9 +476,9 @@
     <category term="CocoaPods" scheme="https://blog.leoxv.com/categories/iOS/CocoaPods/"/>
     
     
-    <category term="CocoaPods" scheme="https://blog.leoxv.com/tags/CocoaPods/"/>
-    
     <category term="iOS" scheme="https://blog.leoxv.com/tags/iOS/"/>
+    
+    <category term="CocoaPods" scheme="https://blog.leoxv.com/tags/CocoaPods/"/>
     
   </entry>
   
@@ -585,9 +585,9 @@
     <category term="技巧" scheme="https://blog.leoxv.com/categories/iOS/%E6%8A%80%E5%B7%A7/"/>
     
     
-    <category term="iOS" scheme="https://blog.leoxv.com/tags/iOS/"/>
-    
     <category term="技巧" scheme="https://blog.leoxv.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="iOS" scheme="https://blog.leoxv.com/tags/iOS/"/>
     
   </entry>
   
