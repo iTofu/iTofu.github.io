@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.leoxv.com/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
+    <lastmod>2025-08-13</lastmod>
+  </url>
+  <url>
     <loc>https://blog.leoxv.com/2015/12/31/The-installation-and-usage-of-CocoaPods-and-FAQ/</loc>
     <lastmod>2025-08-13</lastmod>
   </url>
@@ -25,10 +29,6 @@
     <lastmod>2025-08-13</lastmod>
   </url>
   <url>
-    <loc>https://blog.leoxv.com/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
-    <lastmod>2025-08-13</lastmod>
-  </url>
-  <url>
     <loc>https://blog.leoxv.com/2015/12/21/%5BMac-Tip%5D-How-To-Name-The-Local-Downloads-Folder/</loc>
     <lastmod>2025-08-13</lastmod>
   </url>
@@ -37,11 +37,11 @@
     <lastmod>2025-08-13</lastmod>
   </url>
   <url>
-    <loc>https://blog.leoxv.com/2015/12/15/%5BiOS%5D-How-To-Setting-HTTP-Header-With-AFNetworking/</loc>
+    <loc>https://blog.leoxv.com/2016/01/08/git-commonly-used-commands/</loc>
     <lastmod>2025-08-13</lastmod>
   </url>
   <url>
-    <loc>https://blog.leoxv.com/2016/01/08/git-commonly-used-commands/</loc>
+    <loc>https://blog.leoxv.com/2015/12/15/%5BiOS%5D-How-To-Setting-HTTP-Header-With-AFNetworking/</loc>
     <lastmod>2025-08-13</lastmod>
   </url>
   <url>
