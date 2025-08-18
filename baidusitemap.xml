@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.leoxv.com/2015/12/30/The-Installation-Usage-And-QA-of-Hexo-on-Mac/</loc>
+    <lastmod>2025-08-18</lastmod>
+  </url>
+  <url>
     <loc>https://blog.leoxv.com/2015/12/14/%5BMac-Tip%5D-Three-Finger-Drag-For-Force-Touch/</loc>
     <lastmod>2025-08-13</lastmod>
   </url>
@@ -22,10 +26,6 @@
   </url>
   <url>
     <loc>https://blog.leoxv.com/2016/02/22/Mac-Terminal-Commonly-Used-Vim-Commands/</loc>
-    <lastmod>2025-08-13</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.leoxv.com/2015/12/30/The-Installation-Usage-And-QA-of-Hexo-on-Mac/</loc>
     <lastmod>2025-08-13</lastmod>
   </url>
   <url>
