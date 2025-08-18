@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.leoxv.com/demacia.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.leoxv.com/2015/12/30/The-Installation-Usage-And-QA-of-Hexo-on-Mac/</loc>
     
     <lastmod>2025-08-18</lastmod>
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/2015/12/21/[Mac-Tip]-How-To-Name-The-Local-Downloads-Folder/</loc>
+    <loc>https://blog.leoxv.com/2015/12/15/[iOS]-How-To-Setting-HTTP-Header-With-AFNetworking/</loc>
     
     <lastmod>2025-08-13</lastmod>
     
@@ -83,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/2015/12/15/[iOS]-How-To-Setting-HTTP-Header-With-AFNetworking/</loc>
+    <loc>https://blog.leoxv.com/2015/12/21/[Mac-Tip]-How-To-Name-The-Local-Downloads-Folder/</loc>
     
     <lastmod>2025-08-13</lastmod>
     
@@ -236,51 +245,6 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/demacia.html</loc>
-    
-    <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.leoxv.com/baidu_verify_hmjNiyuaZ1.html</loc>
-    
-    <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.leoxv.com/baidu_verify_codeva-tEX0pSlrlM.html</loc>
-    
-    <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.leoxv.com/README.html</loc>
-    
-    <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.leoxv.com/clawcloud_verify.html</loc>
-    
-    <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.leoxv.com/404.html</loc>
     
     <lastmod>2025-08-06</lastmod>
@@ -404,13 +368,6 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/tags/Hexo/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.leoxv.com/tags/Mac/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -433,6 +390,13 @@
   
   <url>
     <loc>https://blog.leoxv.com/tags/Command/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leoxv.com/tags/Hexo/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -574,7 +538,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Hexo/</loc>
+    <loc>https://blog.leoxv.com/categories/Mac/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -588,7 +552,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/</loc>
+    <loc>https://blog.leoxv.com/categories/Hexo/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -623,7 +587,14 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Hexo/node-js/</loc>
+    <loc>https://blog.leoxv.com/categories/Mac/%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.leoxv.com/categories/Mac/Vim/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -644,7 +615,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/Vim/</loc>
+    <loc>https://blog.leoxv.com/categories/Hexo/node-js/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -679,14 +650,14 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/%E6%8A%80%E5%B7%A7/</loc>
+    <loc>https://blog.leoxv.com/categories/iOS/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Hexo/node-js/Mac/</loc>
+    <loc>https://blog.leoxv.com/categories/Mac/Vim/Terminal/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -694,13 +665,6 @@
   
   <url>
     <loc>https://blog.leoxv.com/categories/iOS/%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.leoxv.com/categories/iOS/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -721,7 +685,7 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/Vim/Terminal/</loc>
+    <loc>https://blog.leoxv.com/categories/Hexo/node-js/Mac/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -763,14 +727,14 @@
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/git/iOS/Linux/</loc>
+    <loc>https://blog.leoxv.com/categories/Mac/Vim/Terminal/Command/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.leoxv.com/categories/Mac/Vim/Terminal/Command/</loc>
+    <loc>https://blog.leoxv.com/categories/git/iOS/Linux/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
